@@ -4,8 +4,6 @@ very quick start on PowerShell
 ## Summary
 quick PowerShell course for people with limited experience on system administrator scripting (5 hours in person meeting + homework + online homework summary session). Course is based on "Learn Windows PowerShell 3 in a Month of Lunches, Second Edition' by Don Jones and Jeffery Hicks".  
 
-**Attention**: There is no full Powershell training, we have such in offer: https://prodapps.plf.esni.ibm.com/EducationPlanner (that 48 hours course cover most required topic, that one should be treat as possibilty to start, not full course). 
-
 ## Method of participation
 -----------------------
 - 5 hours in person meeting
@@ -18,7 +16,7 @@ quick PowerShell course for people with limited experience on system administrat
 - basic knowledge on Windows Server administration and basic knowledge on computer programming (simple VBA macros, Lego Robotics, VBScript or cmd.exe are enough). 
 
 ### Required equipment
-- Windows 7 or Windows 10 virtual machine (registered as training in IBM Asset Manager, possible to remove after training) 
+- Windows 7 or Windows 10 virtual machine  
 - working access to ' Laboratory' with Windows Server 2016 
 
 # Agenda
