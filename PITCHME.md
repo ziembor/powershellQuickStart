@@ -1,8 +1,10 @@
 # PowerShell Quick Start
 very quick
 
+--- 
+
 ## Summary
-quick PowerShell course for people with limited experience on system administrator scripting (5 hours in person meeting + homework + online homework summary session). Course is based on "Learn Windows PowerShell 3 in a Month of Lunches, Second Edition' by Don Jones and Jeffery Hicks".  
+quick PowerShell course for people with limited experience on system administrator scripting (5 hours in person meeting + homework + online homework summary session). Course is based on ["Learn Windows PowerShell 3 in a Month of Lunches, Second Edition' by Don Jones and Jeffery Hicks"](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/).  
 
 ---
 
