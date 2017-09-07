@@ -54,7 +54,8 @@ I expect one week for homework done. In middle of that time I will organize offi
 # Using help
 --- 
 # Running commands
---- 
+---
+![4.2. The anatomy of a command ](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/04fig01.jpg) 
 --- 
 # # The pipeline: connecting commands
 --- 
