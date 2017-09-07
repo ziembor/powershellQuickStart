@@ -49,9 +49,14 @@ I expect one week for homework done. In middle of that time I will organize offi
 --- 
 
 # What is PowerShell, how to apply for everyday tasks
+- PowerShell System Requirements
+- Installing PowerShell v5.1
 --- 
 # Using help
 ![](_Memes/CopingAndPasting.png)
+``` 
+update-help 
+```
 --- 
 # Running commands
 ---
