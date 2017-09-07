@@ -27,14 +27,16 @@ quick PowerShell course for people with limited experience on system administrat
 ---
 
 # Agenda
-* What is PowerShell, how to apply for everyday tasks | 
-* Running commands |
-* The pipeline: connecting commands |
-* Adding commands: function, snap-ins, modules |
-* Objects: data by another name | 
-* Formatting: how to do it properly  |
-* Filtering and comparison |
-* Variables, input, output |
+- What is PowerShell
+- How to apply for everyday tasks | 
+- Running commands                             |
+- The pipeline: connecting commands            |
+- Adding commands: function, snap-ins, modules |
+- Objects: data by another name             | 
+- Formatting: how to do it properly         |
+- Filtering and comparison                  |
+- Variables, input, output                  |
+- Simple function & script                  |
 * Homework selection: write script for specific needs
 
 +++ 
