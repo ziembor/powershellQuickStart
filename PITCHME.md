@@ -29,15 +29,15 @@ quick PowerShell course for people with limited experience on system administrat
 # Agenda
 - What is PowerShell
 - How to apply for everyday tasks 
-- Running commands               
+- Running commands      
 - The pipeline: connecting commands 
 - Adding commands: function, snap-ins, modules 
 ---
 ## Agenda
-- Objects: data by another name             
-- Formatting: how to do it properly         
-- Filtering and comparison                  
-- Simple function & script                  
+- Objects: data by another name    
+- Formatting: how to do it properly
+- Filtering and comparison
+- Simple function & script
 - Homework selection: write script for specific needs
 ---
 # Homework
@@ -60,7 +60,7 @@ I expect one week for homework done. In middle of that time I will organize offi
 update-help 
 ```
 
----?images?_Memes/CopingAndPasting.png
+---?image=_Memes/CopingAndPasting.png&size=auto 90%
 --- 
 # Running commands
 ---
