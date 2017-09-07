@@ -1,3 +1,4 @@
+[![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/ziembor/powershellQuickStart/master?grs=github&t=white)
 # powershellQuickStart
 very quick start on PowerShell
 
