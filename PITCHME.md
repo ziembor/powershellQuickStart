@@ -28,18 +28,19 @@ quick PowerShell course for people with limited experience on system administrat
 
 # Agenda
 - What is PowerShell
-- How to apply for everyday tasks | 
-- Running commands                             |
-- The pipeline: connecting commands            |
-- Adding commands: function, snap-ins, modules |
-- Objects: data by another name             | 
-- Formatting: how to do it properly         |
-- Filtering and comparison                  |
-- Variables, input, output                  |
-- Simple function & script                  |
-* Homework selection: write script for specific needs
-
-+++ 
+- How to apply for everyday tasks 
+- Running commands               
+- The pipeline: connecting commands 
+- Adding commands: function, snap-ins, modules 
+---
+## Agenda
+- Objects: data by another name             
+- Formatting: how to do it properly         
+- Filtering and comparison                  
+- Simple function & script                  
+- Homework selection: write script for specific needs
+---
+# Homework
 
 I expect one week for homework done. In middle of that time I will organize office hours using WebEx remote conference tool. After homework submission date, we will meet and discuss selected works. 
 
@@ -55,10 +56,11 @@ I expect one week for homework done. In middle of that time I will organize offi
 - Installing PowerShell v5.1
 --- 
 # Using help
-![](_Memes/CopingAndPasting.png)
 ``` 
 update-help 
 ```
+
+---?images?_Memes/CopingAndPasting.png
 --- 
 # Running commands
 ---
