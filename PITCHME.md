@@ -80,6 +80,7 @@ Windows PowerShell Survival Guide @ TechNet Wikihttps://social.technet.microsoft
 - [Installing PowerShell v5.1](https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-windows-powershell?view=powershell-5.1) on Windows
 - PowerShell Core is a cross-platform (Windows, Linux, and macOS)... You can download and install a PowerShell package for any of the platforms
 - ... but do not expect exectly the same experience
+<<<<<<< HEAD
 ---
 | Operating System Version | [WMF 5.1](https://aka.ms/wmf51download) | [WMF 5.0](https://aka.ms/wmf5download) | [WMF 4.0](https://aka.ms/wmf4download) |  [WMF 3.0](https://aka.ms/wmf3download) | [WMF 2.0](https://aka.ms/wmf2download) |
 | ------------------------ | ----------- | ----------- | ----------- | ------------ |  ------------- |
@@ -91,6 +92,19 @@ Windows PowerShell Survival Guide @ TechNet Wikihttps://social.technet.microsoft
 | Windows XP | | | |  | Yes |
 
 ---
+=======
+---
+| Operating System Version | [WMF 5.1](https://aka.ms/wmf51download) | [WMF 5.0](https://aka.ms/wmf5download) | [WMF 4.0](https://aka.ms/wmf4download) |  [WMF 3.0](https://aka.ms/wmf3download) | [WMF 2.0](https://aka.ms/wmf2download) |
+| ------------------------ | ----------- | ----------- | ----------- | ------------ |  ------------- |
+| Windows Server 2016 | Ships in-box |  |  |  |  |
+| Windows Server 2012 R2| Yes | Yes | Ships in-box |  |  |
+| Windows Server 2008 R2 SP1 | Yes | Yes | Yes |  Yes| Ships in-box |
+| Windows 7 SP1  | Yes | Yes | Yes | Yes | Ships in-box |
+| Windows Server 2003| | | |  | Yes |
+| Windows XP | | | |  | Yes |
+
+---
+>>>>>>> 1d00c5bf7b10b548db5b265f516361ff3ba78a71
 ### How to apply for everyday tasks
 - interactive shell 
 - ad-hoc scripts 
