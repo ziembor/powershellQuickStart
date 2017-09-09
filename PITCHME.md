@@ -54,11 +54,15 @@ Windows PowerShell Survival Guide @ TechNet Wikihttps://social.technet.microsoft
 
 --- 
 ## What is PowerShell? 
-> * PowerShell is a command-line interface (CLI)... 
-> *  ... that contains a rich, yet simplified scripting language for automating complex, multi-step tasks
+> * PowerShell is a command-line interface (CLI),
+> * that contains a rich, yet simplified scripting language for automating complex, multi-step tasks
 > * Built on the .NET Framework
 > * Extensible, so various products and technologies can be managed by “snapping in” tech-specific extensions
+
+--- 
 > * Most importantly... it’s **discoverable**! It can teach you how to use itself!
+
+<small>Windows PowerShellCrash Course](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2012/WSV321)
 
 --- 
 ### ... some facts 
