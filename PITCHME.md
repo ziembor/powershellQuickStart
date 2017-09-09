@@ -62,16 +62,18 @@ Windows PowerShell Survival Guide @ TechNet Wikihttps://social.technet.microsoft
 --- 
 > * Most importantly... it’s **discoverable**! It can teach you how to use itself!
 
-<small>Windows PowerShellCrash Course](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2012/WSV321)
+<small>Windows PowerShell - Crash Course](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2012/WSV321) by Don Jones and Jefferey Snover. 
 
 --- 
 ### ... some facts 
 #### before 
 - DOS's `command.com`, [cmd.exe](https://ss64.com/nt/), [KixStart](http://www.kixtart.org/), [VBScript](https://ss64.com/vb/)/[JScript]() (based on Windows Scripting Host (WHS)
 - bash, python, perl (on Unicses or via Cygwin or native ports)
-#### Envisioned by [Jeffery Snover]() - 2002 
+
+---
+## Envisioned by [Jeffery Snover]() - 2002 
 - [The Monad Manifesto](https://www.jsnover.com/blog/2011/10/01/monad-manifesto/)
-- long time known as Project Monad
+- long time known as Project 'Monad'
 - released as PowerShell RC1 - 2006-04
 - first product requiring it was Exchange Server 2007
 - PowerShell 2.0 - basic remoting 
@@ -84,7 +86,7 @@ Windows PowerShell Survival Guide @ TechNet Wikihttps://social.technet.microsoft
 - [Installing PowerShell v5.1](https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-windows-powershell?view=powershell-5.1) on Windows
 - PowerShell Core is a cross-platform (Windows, Linux, and macOS)... You can download and install a PowerShell package for any of the platforms
 - ... but do not expect exectly the same experience
-<<<<<<< HEAD
+
 ---
 | Operating System Version | [WMF 5.1](https://aka.ms/wmf51download) | [WMF 5.0](https://aka.ms/wmf5download) | [WMF 4.0](https://aka.ms/wmf4download) |  [WMF 3.0](https://aka.ms/wmf3download) | [WMF 2.0](https://aka.ms/wmf2download) |
 | ------------------------ | ----------- | ----------- | ----------- | ------------ |  ------------- |
@@ -96,19 +98,6 @@ Windows PowerShell Survival Guide @ TechNet Wikihttps://social.technet.microsoft
 | Windows XP | | | |  | Yes |
 
 ---
-=======
----
-| Operating System Version | [WMF 5.1](https://aka.ms/wmf51download) | [WMF 5.0](https://aka.ms/wmf5download) | [WMF 4.0](https://aka.ms/wmf4download) |  [WMF 3.0](https://aka.ms/wmf3download) | [WMF 2.0](https://aka.ms/wmf2download) |
-| ------------------------ | ----------- | ----------- | ----------- | ------------ |  ------------- |
-| Windows Server 2016 | Ships in-box |  |  |  |  |
-| Windows Server 2012 R2| Yes | Yes | Ships in-box |  |  |
-| Windows Server 2008 R2 SP1 | Yes | Yes | Yes |  Yes| Ships in-box |
-| Windows 7 SP1  | Yes | Yes | Yes | Yes | Ships in-box |
-| Windows Server 2003| | | |  | Yes |
-| Windows XP | | | |  | Yes |
-
----
->>>>>>> 1d00c5bf7b10b548db5b265f516361ff3ba78a71
 ### How to apply for everyday tasks
 - interactive shell 
 - ad-hoc scripts 
@@ -163,11 +152,15 @@ Get-command -Module Microsoft.PowerShell.Management
 get-command get-member | get-member  
 ---
 # Running commands
+- any execution should have provided patch to those file. 
+- so if we have such case: 
+```
 
+```
+[The anatomy of a command ](./assets/CommandParameters.png)
 
-![4.2. The anatomy of a command ](./assets/CommandParameters.png)
-
-![](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/04fig01.jpg) 
+Note:
+![4.2](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/04fig01.jpg) 
 --- 
 # # The pipeline: connecting commands
 --- 
@@ -181,9 +174,37 @@ Description : This Microsoft Deployment Toolkit 2010 snap-in contains cmdlets us
 PS C:\code\powershellQuickStart> Add-PSSnapin Microsoft.BDD.PSSnapIn
 ```
 
+---
+or 
+```
+# get info on load modules
+Get-Module 
+#What module we have locally available?
+Get-Module -ListAvailable 
+# Starting powershell 4.0 (or 3.0) modules are loaded automatically if needded, 
+# but in powershell 2.0 we need do it manually 
+Import-Module 	Defender
+Remove-module   Defender
+# what in module 
+Get-Command -Module Defender  
+# PowerShellGallery.com
+Find-Module  PasswordsGenerator
+
+# PS C:\WINDOWS\system32> Find-Module   PasswordsGenerator
+#
+#Version    Name                                Repository           Description
+#-------    ----                                ----------           -----------
+#2.5.0        PasswordsGenerator                PSGallery              PasswordsGenerator is a PowerShell module for automating the...
+Install-Module   PasswordsGenerator
+# Update 
+Install-Module   PasswordsGenerator 
+# Uninstall 
+UnInstall-Module   PasswordsGenerator -whatif 
+```
 --- 
 ## Objects: data by another name
-```$string="This is a variable"
+```
+$string="This is a variable"
 $string
 
 #We can use Get-Member to find out all the information on our objects
@@ -207,8 +228,10 @@ $date.addDays(365)
 ```
 --- 
 ## Formatting: how to do it properly
-`dir | ft #ft is alias for Format-Table `
-`dir | select-object `
+```
+dir | ft #ft is alias for Format-Table 
+dir | select-object 
+```
 --- 
 ## Filtering and comparison
 `where-object`
