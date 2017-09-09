@@ -46,9 +46,10 @@ I expect one week for homework done. In middle of that time I will organize offi
 ## Supporting sources
 * ['Using Windows PowerShell'](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/fundamental/using-windows-powershell)
 * ['Learn Windows PowerShell 3 in a Month of Lunches, Second Edition' by Don Jones and Jeffery Hicks Publisher: Manning Publications](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/)
+* [MikeFal/IntroToPowershell](https://github.com/MikeFal/IntroToPowershell)
 
 Note:
-['Windows PowerShell Survival Guide'](https://social.technet.microsoft.com/wiki/contents/articles/183.windows-powershell-survival-guide.aspx)
+Windows PowerShell Survival Guide @ TechNet Wiki(https://social.technet.microsoft.com/wiki/contents/articles/183.windows-powershell-survival-guide.aspx)
 
 --- 
 ## What is PowerShell? 
@@ -71,12 +72,14 @@ Note:
 - CI/CD (Contionous Integration/Contionous Delivery) 
 --- 
 ### Using help
-hint: 
-* update-help 
-    * <small>require Internet access and escalate shell.</small>
+
+* on fresh system execute <code>update-help </code> <small>require Internet access and escalate shell.</small>
 * help get-ChildItem
-** get-ChildItem 
-* show-command get-aduser 
+    - help get-ChildItem -examples 
+    - help get-ChildItem -details 
+    - help get-ChildItem -full 
+    - Get-Help Get-ChildItem -ShowWindow
+* show-command Get-ChildItem 
 * 
 
 ---?image=_Memes/CopingAndPasting.png&size=auto 90%

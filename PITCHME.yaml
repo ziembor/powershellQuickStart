@@ -1,1 +1,7 @@
 slide-number: true
+footnote : "<a href='#/2'>Presentation Menu</a>"
+transition : fade
+remote-control: true
+theme : moon
+logo : assets/logo.png
+vertical-center : false
