@@ -47,7 +47,7 @@ I expect one week for homework done. In middle of that time I will organize offi
 * ['Using Windows PowerShell'](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/fundamental/using-windows-powershell)
 * ['Learn Windows PowerShell 3 in a Month of Lunches, Second Edition' by Don Jones and Jeffery Hicks Publisher: Manning Publications](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/)
 
-Notes:
+Note:
 ['Windows PowerShell Survival Guide'](https://social.technet.microsoft.com/wiki/contents/articles/183.windows-powershell-survival-guide.aspx)
 
 --- 
@@ -70,14 +70,18 @@ Notes:
 - tools 
 - CI/CD (Contionous Integration/Contionous Delivery) 
 --- 
-# Using help
-```PowerShell
-update-help 
-```
-<small>It can require Internet access</small>
+### Using help
+hint: 
+* update-help 
+    * <small>require Internet access and escalate shell.</small>
+* help get-ChildItem
+** get-ChildItem 
+* show-command get-aduser 
+* 
 
 ---?image=_Memes/CopingAndPasting.png&size=auto 90%
 
+---
 # Running commands
 ---
 ![4.2. The anatomy of a command ](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/04fig01.jpg) 
