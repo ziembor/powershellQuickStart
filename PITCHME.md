@@ -144,12 +144,16 @@ Get-Help Get-ChildItem -ShowWindow
 ```
 get-command 
 get-command | out-grid 
-get-module | out-grid 
+get-module  | out-grid 
 Get-command -Module Microsoft.PowerShell.Management
-
+```
 ---
 # Discover - parameters 
+```
 get-command get-member | get-member  
+
+```
+
 ---
 # Running commands
 - any execution should have provided patch to those file. 
