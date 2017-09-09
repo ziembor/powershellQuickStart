@@ -11,7 +11,7 @@ Quick PowerShell course for people with limited experience on system administrat
 ## Method of participation
 - 5 hours in person meeting
 - homework 
-- 1 hour online (WebEx/telco) meeting to summary homework
+- 1 hour online (WebEx/telco) meeting to review homework
 
 ---
 
@@ -110,6 +110,11 @@ get-host
 Stop-Transcript
 notepad $env:Temp\GettingStarted.txt
 ```
+* The console window vs `Integrated Scripting Environment`
+* Common Points of Confusion
+    - 32- and 64-bit
+    - Running as Administrator
+
 --- 
 ### Using help
 
@@ -124,15 +129,27 @@ help get-ChildItem -examples
 Get-Help Get-ChildItem -ShowWindow
 ```
 * show-command Get-ChildItem 
-* 
 
 ---?image=_Memes/CopingAndPasting.png&size=auto 90%
 
+--- 
+# Discover - commands 
+```
+get-command 
+get-command | out-grid 
+get-module | out-grid 
+Get-command -Module Microsoft.PowerShell.Management
+
+---
+# Discover - parameters 
+get-command get-member | get-member  
 ---
 # Running commands
 
----
-![4.2. The anatomy of a command ](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/04fig01.jpg) 
+
+![4.2. The anatomy of a command ](./assets/CommandParameters.png)
+
+![](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/04fig01.jpg) 
 --- 
 # # The pipeline: connecting commands
 --- 
@@ -176,9 +193,20 @@ $date.addDays(365)
 `dir | select-object `
 --- 
 ## Filtering and comparison
+`where-object`
+
 --- 
 ## Variables, input, output
+
 --- 
+## Simple script 
+```
+PS C:\code> echo "param(`$zmienna) `necho `$zmienna" >  .\script.ps1
+PS C:\code> .\script.ps1 -zmienna "To jest argument zmiennej"
+To jest argument zmiennej
+````
+
+---
 # Homework selection: write script for specific needs
 * return date and time of the last restart - it should return at least two properties: name of machine and datetime of event 
 * test if a specified application has been installed and if it happens after a date of creating a new version of the software (stored somewhere in local machine as MSI package). if the test goes OK: install unattended that newer version of the software. 
