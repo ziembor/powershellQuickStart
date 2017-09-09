@@ -62,14 +62,15 @@ Windows PowerShell Survival Guide @ TechNet Wikihttps://social.technet.microsoft
 --- 
 > * Most importantly... it’s **discoverable**! It can teach you how to use itself!
 
-<small>Windows PowerShell - Crash Course](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2012/WSV321) by Don Jones and Jefferey Snover. 
+<small>Windows PowerShell - Crash Course](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2012/WSV321) by Don Jones and Jefferey Snover. </small>
 
 --- 
-### ... some facts 
 #### before 
 - DOS's `command.com`, [cmd.exe](https://ss64.com/nt/), [KixStart](http://www.kixtart.org/), [VBScript](https://ss64.com/vb/)/[JScript]() (based on Windows Scripting Host (WHS)
 - bash, python, perl (on Unicses or via Cygwin or native ports)
-
+```
+for /L %u in (1,2,99) do echo %i 
+```
 ---
 ## Envisioned by [Jeffery Snover]() - 2002 
 - [The Monad Manifesto](https://www.jsnover.com/blog/2011/10/01/monad-manifesto/)
@@ -140,18 +141,47 @@ Get-Help Get-ChildItem -ShowWindow
 ---?image=_Memes/CopingAndPasting.png&size=auto 90%
 
 --- 
-# Discover - commands 
+### Discover - commands 
 ```
 get-command 
 get-command | out-grid 
 get-module  | out-grid 
 Get-command -Module Microsoft.PowerShell.Management
 ```
+get-c^I (^I means - now use `Tab`key)
 ---
 # Discover - parameters 
 ```
-get-command get-member | get-member  
-
+PS C:\code\bin> get-command get-member | get-member
+   TypeName: System.Management.Automation.CmdletInfo
+Name                MemberType     Definition
+----                ----------     ----------
+Equals              Method         bool Equals(System.Object obj)
+GetHashCode         Method         int GetHashCode()
+GetType             Method         type GetType()
+ResolveParameter    Method         System.Management.Automation.ParameterMetadata ResolveParameter(string name)
+ToString            Method         string ToString()
+CommandType         Property       System.Management.Automation.CommandTypes CommandType {get;}
+DefaultParameterSet Property       string DefaultParameterSet {get;}
+Definition          Property       string Definition {get;}
+HelpFile            Property       string HelpFile {get;}
+ImplementingType    Property       type ImplementingType {get;}
+Module              Property       psmoduleinfo Module {get;}
+ModuleName          Property       string ModuleName {get;}
+Name                Property       string Name {get;}
+Noun                Property       string Noun {get;}
+Options             Property       System.Management.Automation.ScopedItemOptions Options {get;set;}
+OutputType          Property       System.Collections.ObjectModel.ReadOnlyCollection[System.Management.Automation.PSTypeName] OutputType {get;}
+Parameters          Property       System.Collections.Generic.Dictionary[string,System.Management.Automation.ParameterMetadata] Parameters {get;}
+ParameterSets       Property       System.Collections.ObjectModel.ReadOnlyCollection[System.Management.Automation.CommandParameterSetInfo] Parame...
+PSSnapIn            Property       System.Management.Automation.PSSnapInInfo PSSnapIn {get;}
+RemotingCapability  Property       System.Management.Automation.RemotingCapability RemotingCapability {get;}
+Source              Property       string Source {get;}
+Verb                Property       string Verb {get;}
+Version             Property       version Version {get;}
+Visibility          Property       System.Management.Automation.SessionStateEntryVisibility Visibility {get;set;}
+DLL                 ScriptProperty System.Object DLL {get=$this.ImplementingType.Assembly.Location;}
+HelpUri             ScriptProperty System.Object HelpUri {get=$oldProgressPreference = $ProgressPreference...
 ```
 
 ---
@@ -159,7 +189,30 @@ get-command get-member | get-member
 - any execution should have provided patch to those file. 
 - so if we have such case: 
 ```
+PS C:\code\bin> dir
 
+
+    Directory: C:\code\bin
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----       22.06.2017     16:38       86325248 calc2017.exe
+-a----       09.09.2017     21:31             66 script.ps1
+
+
+PS C:\code\bin> calc2017.exe
+calc2017.exe : The term 'calc2017.exe' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of
+the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ calc2017.exe
++ ~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (calc2017.exe:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+
+Suggestion [3,General]: The command calc2017.exe was not found, but does exist in the current location. Windows PowerShell does not load commands from the current location by default. If you trust this command, instead type: ".\calc2017.exe". See "get-help about_Command_Precedence" for more details.
+PS C:\code\bin> .\calc2017.exe
 ```
 [The anatomy of a command ](./assets/CommandParameters.png)
 
