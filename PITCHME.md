@@ -38,7 +38,7 @@ Quick PowerShell course for people with limited experience on system administrat
 - basic knowledge on computer programming (simple VBA macros, Lego Robotics, VBScript or cmd.exe are enough). 
 
 #### Required equipment
-- Windows 7 or Windows 10 virtual machine with possibilyt to install software (WMF 5.1, from Microsoft trusted source) 
+- Windows 7 or Windows 10 virtual machine with right to install software (WMF 5.1, from Microsoft trusted source) 
 or
 - working access to laboratory with Windows Server 2016 
 
@@ -65,13 +65,11 @@ I expect one week for homework done. In middle of that time, I will organize off
 ---
 ### Supporting sources
 * ['Using Windows PowerShell'](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/fundamental/using-windows-powershell) / free
-* ['Learn Windows PowerShell 3 in a Month of Lunches, Second Edition' by Don Jones and Jeffery Hicks Publisher: Manning Publications](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/) / paid, here Safair Books Online (+ [video on YouTube](https://www.youtube.com/playlist?list=PL6D474E721138865A&feature=view_all))
+* ['Learn Windows PowerShell 3 in a Month of Lunches, Second Edition' by Don Jones and Jeffery Hicks Publisher: Manning Publications](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/) / paid, SafariBooksOnline (+ [video on YouTube](https://www.youtube.com/playlist?list=PL6D474E721138865A&feature=view_all))
 * [MikeFal/IntroToPowershell](https://github.com/MikeFal/IntroToPowershell) / free
+* [Windows PowerShell Cookbook, 3rd Edition](https://www.safaribooksonline.com/library/view/windows-powershell-cookbook/9781449359195/) by Lee Holmes /cpaid, SafariBooksOnline 
 * Rafał Kraik [Powershell dla administratora Windows - kompletny kurs](https://www.udemy.com/powershell-dla-administratora-windows/) / paid, Udemy
-* + i.e. resources @ https://mva.microsoft.com/ 
-
-Note:
-Windows PowerShell Survival Guide @ TechNet Wikihttps://social.technet.microsoft.com/wiki/contents/articles/183.windows-powershell-survival-guide.aspx
+* `+` i.e. resources @ https://mva.microsoft.com/ 
 
 --- 
 ### What is PowerShell? 
@@ -83,7 +81,7 @@ Windows PowerShell Survival Guide @ TechNet Wikihttps://social.technet.microsoft
 --- 
 > * Most importantly... it’s **discoverable**! It can teach you how to use itself!
 
-<small>Windows PowerShell - Crash Course](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2012/WSV321) by Don Jones and Jefferey Snover. </small>
+<small>[Windows PowerShell - Crash Course](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2012/WSV321) by Don Jones and Jefferey Snover. </small>
 
 --- 
 #### before 
@@ -91,6 +89,8 @@ Windows PowerShell Survival Guide @ TechNet Wikihttps://social.technet.microsoft
 - bash, python, perl (on Unicses or via Cygwin or native ports)
 ```
 for /L %u in (1,2,99) do echo %i 
+IF %ERRORLEVEL% EQU 0 (Echo No error found) ELSE (Echo An error was found)
+
 ```
 
 ---
@@ -190,10 +190,9 @@ Definition          Property       string Definition {get;}
 
 ---
 ### Running commands
-- any execution should have provided patch to those file. 
+- any execution should have provided a path to that file. 
 - so if we have such case: 
 <small>
-
 ```
 PS C:\code\bin> dir
 Mode                LastWriteTime         Length Name
@@ -213,9 +212,6 @@ PS C:\code\bin> .\calc2017.exe
 ---
 ![The anatomy of a command ](assets/CommandParameters.png)
 
-Note:
-![4.2](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/04fig01.jpg) 
-
 --- 
 ### The pipeline: connecting commands
 ```
@@ -230,7 +226,7 @@ foreach ($file in (dir iis*.lo_)) {move $file old -verbose}
 ```
 
 --- 
-### Adding commands: ... snap-ins ... (quite old fashion, powershell 1.0)
+### Adding commands: ... snap-ins ... (quite old fashion, PowerShell 1.0)
 ```
 PS C:\code\powershellQuickStart> Get-PSSnapin -Registered
 Name        : Microsoft.BDD.PSSnapIn
@@ -245,9 +241,9 @@ PS C:\code\powershellQuickStart> Add-PSSnapin Microsoft.BDD.PSSnapIn
 Get-Module 
 #What module we have locally available?
 Get-Module -ListAvailable 
-# Starting powershell 4.0 (or 3.0) modules can be loaded automatically
-# but in powershell 2.0 we need do it manually 
-Import-Module 	Defender
+# Starting PowerShell 4.0 (or 3.0) modules can be loaded automatically
+# but in PowerShell 2.0 we need do it manually 
+Import-Module     Defender
 Remove-module   Defender
 # what in module 
 Get-Command -Module Defender  
@@ -305,7 +301,7 @@ dir | select-object FullName,Last*
 ```
 dir | Where-Object LastWriteTime -gt 2017-09-01
 ls|Where {$_.LastWriteTime -gt 2017-09-01 -and 
-		$_.Length -gt 100}
+        $_.Length -gt 100}
         
 
 ```
@@ -398,11 +394,20 @@ Homework selection: write script for specific needs
 
 <li> write script which will remove all logs older than one year, and compress older than 30 days in c:\oldLogs 
 
-<li> test if specified (as argument of script) service is installed, is working. If not - start it. 
+<li> test if specified (as a parameter of a script) service is installed, is working. If not - start it. 
+
+<li> test if specified website is working, if not send mail to admin or write event to Windows Eventlog 
+</small>
+continiue on next slide,
+
+---
+<small>
+<li> test if www.test.com is available on ICMP test, if not
+
 </small>
 
-any other send as request to me... and probably will be approved.
-Delivery - as mail with *.zip file containing compresed script or on GIST and link. 
+any other send a request to me... and probably will be approved.
+Delivery - as mail with *.zip file containing compressed script or on GIST and link. 
 
 --- 
 # Any questions, comment, demands??? 
