@@ -6,18 +6,18 @@ delivered (or not :)) by Ziemek Borowski, with some lab, homework and code revie
 <!-- TOC -->
 
 - [PowerShell Quick Start](#powershell-quick-start)
-    - [Summary](#summary)
-    - [Method of participation](#method-of-participation)
+        - [Summary](#summary)
+        - [Method of participation](#method-of-participation)
         - [Participant requirements](#participant-requirements)
             - [Required knowledge / skills](#required-knowledge--skills)
             - [Required equipment](#required-equipment)
-    - [Agenda](#agenda)
+        - [Agenda](#agenda)
         - [Agenda cont'ed](#agenda-conted)
         - [Homework](#homework)
-    - [Supporting sources](#supporting-sources)
-    - [What is PowerShell?](#what-is-powershell)
+        - [Supporting sources](#supporting-sources)
+        - [What is PowerShell?](#what-is-powershell)
             - [before](#before)
-    - [Envisioned by [Jeffery Snover]() - 2002](#envisioned-by-jeffery-snover---2002)
+        - [Envisioned by [Jeffery Snover]() - 2002](#envisioned-by-jeffery-snover---2002)
         - [PowerShell scope of use](#powershell-scope-of-use)
         - [How to apply for everyday tasks](#how-to-apply-for-everyday-tasks)
         - [Let's start](#lets-start)
@@ -30,21 +30,24 @@ delivered (or not :)) by Ziemek Borowski, with some lab, homework and code revie
         - [Adding commands: ... modules ...](#adding-commands--modules-)
         - [Adding commands: ... functions ...](#adding-commands--functions-)
         - [Objects: data by another name](#objects-data-by-another-name)
-    - [Formatting: how to do it properly](#formatting-how-to-do-it-properly)
-    - [Filtering and comparison](#filtering-and-comparison)
-    - [Variables](#variables)
+        - [Formatting: how to do it properly](#formatting-how-to-do-it-properly)
+        - [Filtering and comparison](#filtering-and-comparison)
+        - [Variables](#variables)
         - [Variables cont'ed](#variables-conted)
         - [output](#output)
         - [Input](#input)
+        - [Simple script](#simple-script)
+        - [Homework](#homework-1)
+- [???](#)
 
 <!-- /TOC -->
 
 ---
-## Summary
+### Summary
 Quick PowerShell course for people with limited experience on system administrator scripting (5 hours in person meeting + homework + online homework review session). The course is based on ["Learn Windows PowerShell 3 in a Month of Lunches, Second Edition' by Don Jones and Jeffery Hicks"](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/).  
 
 ---
-## Method of participation
+### Method of participation
 - 5 hours in person meeting
 - homework 
 - 1 hour online (WebEx/telco) meeting to review homework
@@ -62,7 +65,7 @@ or
 - working access to laboratory with Windows Server 2016 
 
 ---
-## Agenda
+### Agenda
 - What is PowerShell
 - How to apply for everyday tasks 
 - Running commands      
@@ -82,7 +85,7 @@ or
 I expect one week for homework done. In middle of that time, I will organize office hours using WebEx remote conference tool. After homework submission date, we will meet and discuss selected works. 
 
 ---
-## Supporting sources
+### Supporting sources
 * ['Using Windows PowerShell'](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/fundamental/using-windows-powershell) / free
 * ['Learn Windows PowerShell 3 in a Month of Lunches, Second Edition' by Don Jones and Jeffery Hicks Publisher: Manning Publications](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/) / paid, here Safair Books Online 
 * [MikeFal/IntroToPowershell](https://github.com/MikeFal/IntroToPowershell) / free
@@ -93,7 +96,7 @@ Note:
 Windows PowerShell Survival Guide @ TechNet Wikihttps://social.technet.microsoft.com/wiki/contents/articles/183.windows-powershell-survival-guide.aspx
 
 --- 
-## What is PowerShell? 
+### What is PowerShell? 
 > * PowerShell is a command-line interface (CLI),
 > * that contains a rich, yet simplified scripting language for automating complex, multi-step tasks
 > * Built on the .NET Framework
@@ -113,7 +116,7 @@ for /L %u in (1,2,99) do echo %i
 ```
 
 ---
-## Envisioned by [Jeffery Snover]() - 2002 
+### Envisioned by [Jeffery Snover]() - 2002 
 - [The Monad Manifesto](https://www.jsnover.com/blog/2011/10/01/monad-manifesto/)
 - long time known as Project 'Monad'
 - released as PowerShell RC1 - 2006-04
@@ -304,14 +307,14 @@ $date.ToUniversalTime()
 $date.addDays(365)
 ```
 --- 
-## Formatting: how to do it properly
+### Formatting: how to do it properly
 ```
 dir | ft -auto #ft is alias for Format-Table 
 Get-ChildItem | Format-List 
 dir | select-object FullName,Last* 
 ```
 --- 
-## Filtering and comparison
+### Filtering and comparison
 `where-object` - allow to select from results something what match for our needs
 ```
 dir | Where-Object LastWriteTime -gt 2017-09-01
@@ -322,7 +325,7 @@ ls|Where {$_.LastWriteTime -gt 2017-09-01 -and
 ```
 
 --- 
-## Variables
+### Variables
 we already use some of variables above: 
 ``` 
 $zmienna;$string;$_;$date
@@ -375,18 +378,23 @@ PS C:\Code> type .\CSVFile.csv
 ```
 ---
 ### Input
+
 ```
 $variableSTR = get-content  file 
 $variableCSV = Import-CSV File.csv 
 $dir = dir ;  ConvertTo-Json -InputObject $dir  | out-file dir.json
 gc .\dir.json |ConvertFrom-Json
+```
 
 --- 
 ### Simple script 
+
 ```
 echo "`necho `'To jest skrypt"'" >  .\script.ps1
 ```
+
 Ok, let complicate a little bit... 
+
 ```
 PS p:\> echo "param(`$zmienna) `necho `$zmienna" > script.ps1
 PS p:\> .\script.ps1 -zmienna "To jest argument zmiennej"
@@ -394,10 +402,15 @@ To jest argument zmiennej
 ````
 
 ---
-# Homework selection: write script for specific needs
+### Homework 
+Homework selection: write script for specific needs
 * return date and time of the last restart - it should return at least two properties: name of machine and datetime of event 
 * test if a specified application has been installed and if it happens after a date of creating a new version of the software (stored somewhere in local machine as MSI package). if the test goes OK: install unattended that newer version of the software. 
 * write script which will remove all logs older than one year, and compress older than 30 days in c:\oldLogs 
 * test if specified (as argument of script) service is installed, is working. If not - start it. 
+
+any other send as request to me... and approved.
+Delivery - as *.zip file containing compresed file or on GIST and link. 
+
 --- 
 # ??? 
