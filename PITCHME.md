@@ -3,8 +3,6 @@ very quick - up to 6 hours
 delivered (or not :)) by Ziemek Borowski, with some lab, homework and code review
 
 --- 
-<!-- TOC -->
-
 - [PowerShell Quick Start](#powershell-quick-start)
         - [Summary](#summary)
         - [Method of participation](#method-of-participation)
@@ -39,8 +37,6 @@ delivered (or not :)) by Ziemek Borowski, with some lab, homework and code revie
         - [Simple script](#simple-script)
         - [Homework](#homework-1)
 - [???](#)
-
-<!-- /TOC -->
 
 ---
 ### Summary
@@ -403,6 +399,7 @@ To jest argument zmiennej
 
 ---
 ### Homework 
+<small>
 Homework selection: write script for specific needs
 * return date and time of the last restart - it should return at least two properties: name of machine and datetime of event 
 * test if a specified application has been installed and if it happens after a date of creating a new version of the software (stored somewhere in local machine as MSI package). if the test goes OK: install unattended that newer version of the software. 
@@ -411,6 +408,6 @@ Homework selection: write script for specific needs
 
 any other send as request to me... and approved.
 Delivery - as *.zip file containing compresed file or on GIST and link. 
-
+</small>
 --- 
 # ??? 
