@@ -14,11 +14,11 @@ Quick PowerShell course for people with limited experience on system administrat
 - 1 hour online (WebEx/telco) meeting to review homework
 
 ---
-
 ### Participant requirements
 
 #### Required knowledge / skills
-- basic knowledge on Windows Server administration and basic knowledge on computer programming (simple VBA macros, Lego Robotics, VBScript or cmd.exe are enough). 
+- some knowledge on Windows Server administration
+- basic knowledge on computer programming (simple VBA macros, Lego Robotics, VBScript or cmd.exe are enough). 
 
 #### Required equipment
 - Windows 7 or Windows 10 virtual machine with possibilyt to install software (WMF 5.1, from Microsoft trusted source) 
@@ -175,22 +175,13 @@ Definition          Property       string Definition {get;}
 ### Running commands
 - any execution should have provided patch to those file. 
 - so if we have such case: 
+
 ```
 PS C:\code\bin> dir
 Mode                LastWriteTime         Length Name
-----                -------------         ------ ----
 -a----       22.06.2017     16:38       86325248 calc2017.exe
 PS C:\code\bin> calc2017.exe
-calc2017.exe : The term 'calc2017.exe' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of
-the name, or if a path was included, verify that the path is correct and try again.
-At line:1 char:1
-+ calc2017.exe
-+ ~~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (calc2017.exe:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
-
-
-Suggestion [3,General]: The command calc2017.exe was not found, but does exist in the current location. Windows PowerShell does not load commands from the current location by default. If you trust this command, instead type: ".\calc2017.exe". See "get-help about_Command_Precedence" for more details.
+calc2017.exe : The term 'calc2017.exe' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again. [...] Suggestion [3,General]: The command calc2017.exe was not found, but does exist in the current location. Windows PowerShell does not load commands from the current location by default. If you trust this command, instead type: ".\calc2017.exe". See "get-help about_Command_Precedence" for more details.
 PS C:\code\bin> .\calc2017.exe
 ```
 
@@ -202,8 +193,18 @@ Note:
 
 --- 
 ### The pipeline: connecting commands
---- 
+```
+dir | get-member 
+Get-Service | Export-CSV services.csv 
+foreach ($i in (1..300)) {$day = (get-date).AddDays(-$i);  
+    echo $day | 
+    out-file  iis$((get-date $day -format s).Replace(':','-')).log -verbose }
+mkdir old 
+dir iis*.log | foreach {makecab $_ ; del $_ }
+foreach ($file in (dir iis*.lo_)) {move $file old -verbose}
+```
 
+--- 
 ### Adding commands: ... snap-ins ... (quite old fashion, powershell 1.0)
 ```
 PS C:\code\powershellQuickStart> Get-PSSnapin -Registered
@@ -338,6 +339,11 @@ PS C:\Code> type .\CSVFile.csv
 ```
 ---
 ### Input
+```
+$variableSTR = get-content  file 
+$variableCSV = Import-CSV File.csv 
+$dir = dir ;  ConvertTo-Json -InputObject $dir  | out-file dir.json
+gc .\dir.json |ConvertFrom-Json
 
 --- 
 ### Simple script 
