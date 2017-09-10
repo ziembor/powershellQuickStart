@@ -210,18 +210,26 @@ Definition          Property       string Definition {get;}
 ### Running commands
 - any execution should have provided patch to those file. 
 - so if we have such case: 
+<small>
 
 ```
 PS C:\code\bin> dir
 Mode                LastWriteTime         Length Name
 -a----       22.06.2017     16:38       86325248 calc2017.exe
 PS C:\code\bin> calc2017.exe
-calc2017.exe : The term 'calc2017.exe' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again. [...] Suggestion [3,General]: The command calc2017.exe was not found, but does exist in the current location. Windows PowerShell does not load commands from the current location by default. If you trust this command, instead type: ".\calc2017.exe". See "get-help about_Command_Precedence" for more details.
+calc2017.exe : The term 'calc2017.exe' is not recognized as the name of a cmdlet, function, script 
+file, or operable program. Check the spelling of the name, or if a path was included, verify that the 
+path is correct and try again. [...] Suggestion [3,General]: The command calc2017.exe was not found, 
+but does exist in the current location. Windows PowerShell does not load commands from the current 
+location by default. If you trust this command, instead type: ".\calc2017.exe". See "get-help 
+about_Command_Precedence" for more details.
 PS C:\code\bin> .\calc2017.exe
 ```
 
+</small>
+
 ---
-[The anatomy of a command ](./assets/CommandParameters.png)
+![The anatomy of a command ](assets/CommandParameters.png)
 
 Note:
 ![4.2](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/04fig01.jpg) 
