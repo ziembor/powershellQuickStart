@@ -3,36 +3,22 @@ very quick - up to 6 hours
 delivered (or not :)) by Ziemek Borowski, with some lab, homework and code review
 
 --- 
-- [PowerShell Quick Start](#powershell-quick-start)
-        - [Summary](#summary)
+- [PowerShell Quick Start](#powershell-quick-start) - table of content
         - [Method of participation](#method-of-participation)
         - [Participant requirements](#participant-requirements)
-        - [Agenda](#agenda)
-        - [Agenda cont'ed](#agenda-conted)
-        - [Homework](#homework)
         - [Supporting sources](#supporting-sources)
         - [What is PowerShell?](#what-is-powershell)
-        - [PowerShell scope of use](#powershell-scope-of-use)
-        - [How to apply for everyday tasks](#how-to-apply-for-everyday-tasks)
         - [Let's start](#lets-start)
         - [Using help](#using-help)
-        - [Discover - commands](#discover---commands)
-        - [Discover - parameters](#discover---parameters)
         - [Running commands](#running-commands)
         - [The pipeline: connecting commands](#the-pipeline-connecting-commands)
-        - [Adding commands: ... snap-ins ... (quite old fashion, powershell 1.0)](#adding-commands--snap-ins--quite-old-fashion-powershell-10)
         - [Adding commands: ... modules ...](#adding-commands--modules-)
-        - [Adding commands: ... functions ...](#adding-commands--functions-)
         - [Objects: data by another name](#objects-data-by-another-name)
         - [Formatting: how to do it properly](#formatting-how-to-do-it-properly)
         - [Filtering and comparison](#filtering-and-comparison)
-        - [Variables](#variables)
-        - [Variables cont'ed](#variables-conted)
-        - [output](#output)
-        - [Input](#input)
         - [Simple script](#simple-script)
         - [Homework](#homework-1)
-- [???](#)
+
 
 ---
 ### Summary
@@ -413,9 +399,10 @@ Homework selection: write script for specific needs
 <li> write script which will remove all logs older than one year, and compress older than 30 days in c:\oldLogs 
 
 <li> test if specified (as argument of script) service is installed, is working. If not - start it. 
-
-any other send as request to me... and approved.
-Delivery - as *.zip file containing compresed file or on GIST and link. 
 </small>
+
+any other send as request to me... and probably will be approved.
+Delivery - as mail with *.zip file containing compresed script or on GIST and link. 
+
 --- 
 # Any questions, comment, demands??? 
