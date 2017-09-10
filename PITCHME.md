@@ -32,6 +32,7 @@ or
 - Running commands      
 - The pipeline: connecting commands 
 - Adding commands: function, snap-ins, modules 
+
 ---
 ### Agenda cont'ed
 - Objects: data by another name    
@@ -39,6 +40,7 @@ or
 - Filtering and comparison
 - Simple function & script
 - Homework selection: write script for specific needs
+
 ---
 ### Homework
 I expect one week for homework done. In middle of that time, I will organize office hours using WebEx remote conference tool. After homework submission date, we will meet and discuss selected works. 
@@ -49,6 +51,7 @@ I expect one week for homework done. In middle of that time, I will organize off
 * ['Learn Windows PowerShell 3 in a Month of Lunches, Second Edition' by Don Jones and Jeffery Hicks Publisher: Manning Publications](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/) / paid, here Safair Books Online 
 * [MikeFal/IntroToPowershell](https://github.com/MikeFal/IntroToPowershell) / free
 * Rafał Kraik [Powershell dla administratora Windows - kompletny kurs](https://www.udemy.com/powershell-dla-administratora-windows/) / paid, Udemy
+* + i.e. resources @ https://mva.microsoft.com/ 
 
 Note:
 Windows PowerShell Survival Guide @ TechNet Wikihttps://social.technet.microsoft.com/wiki/contents/articles/183.windows-powershell-survival-guide.aspx
@@ -72,6 +75,7 @@ Windows PowerShell Survival Guide @ TechNet Wikihttps://social.technet.microsoft
 ```
 for /L %u in (1,2,99) do echo %i 
 ```
+
 ---
 ## Envisioned by [Jeffery Snover]() - 2002 
 - [The Monad Manifesto](https://www.jsnover.com/blog/2011/10/01/monad-manifesto/)
@@ -82,6 +86,7 @@ for /L %u in (1,2,99) do echo %i
 - Windows Server 2008 R2 - PowerShell 3.0 
 - Windows Server 2012 - PowerShell 4.0 - DSC - Desired State Configuration
 - Windows Server 2016 - PowerShell 5.1 
+
 ---
 ### PowerShell scope of use 
 - [PowerShell System Requirements](https://docs.microsoft.com/en-us/powershell/wmf/5.1/install-configure)
@@ -120,9 +125,9 @@ Stop-Transcript
 notepad $env:Temp\GettingStarted.txt
 ```
 * The console window vs `Integrated Scripting Environment`
-* Common Points of Confusion
-    - 32- and 64-bit
-    - Running as Administrator
+* some confusions
+    - 32- and 64-bit (select your OS version, 32-bit is for rare cases)
+    - Running as Administrator (if really not needed - avoid work as escalated admin, but... sometimes it's really needed)
 
 --- 
 ### Using help
@@ -135,6 +140,7 @@ help get-ChildItem -examples
 help get-ChildItem -detailed
 help get-ChildItem -full 
 help get-ChildItem -examples
+help get-ChildItem -online
 Get-Help Get-ChildItem -ShowWindow
 ```
 * show-command Get-ChildItem 
@@ -151,7 +157,7 @@ Get-command -Module Microsoft.PowerShell.Management
 ```
 get-c^I (^I means - now use `Tab`key)
 ---
-# Discover - parameters 
+### Discover - parameters 
 ```
 PS C:\code\bin> get-command get-member | get-member
    TypeName: System.Management.Automation.CmdletInfo
@@ -159,34 +165,14 @@ Name                MemberType     Definition
 ----                ----------     ----------
 Equals              Method         bool Equals(System.Object obj)
 GetHashCode         Method         int GetHashCode()
-GetType             Method         type GetType()
-ResolveParameter    Method         System.Management.Automation.ParameterMetadata ResolveParameter(string name)
-ToString            Method         string ToString()
+[...]
 CommandType         Property       System.Management.Automation.CommandTypes CommandType {get;}
 DefaultParameterSet Property       string DefaultParameterSet {get;}
 Definition          Property       string Definition {get;}
-HelpFile            Property       string HelpFile {get;}
-ImplementingType    Property       type ImplementingType {get;}
-Module              Property       psmoduleinfo Module {get;}
-ModuleName          Property       string ModuleName {get;}
-Name                Property       string Name {get;}
-Noun                Property       string Noun {get;}
-Options             Property       System.Management.Automation.ScopedItemOptions Options {get;set;}
-OutputType          Property       System.Collections.ObjectModel.ReadOnlyCollection[System.Management.Automation.PSTypeName] OutputType {get;}
-Parameters          Property       System.Collections.Generic.Dictionary[string,System.Management.Automation.ParameterMetadata] Parameters {get;}
-ParameterSets       Property       System.Collections.ObjectModel.ReadOnlyCollection[System.Management.Automation.CommandParameterSetInfo] Parame...
-PSSnapIn            Property       System.Management.Automation.PSSnapInInfo PSSnapIn {get;}
-RemotingCapability  Property       System.Management.Automation.RemotingCapability RemotingCapability {get;}
-Source              Property       string Source {get;}
-Verb                Property       string Verb {get;}
-Version             Property       version Version {get;}
-Visibility          Property       System.Management.Automation.SessionStateEntryVisibility Visibility {get;set;}
-DLL                 ScriptProperty System.Object DLL {get=$this.ImplementingType.Assembly.Location;}
-HelpUri             ScriptProperty System.Object HelpUri {get=$oldProgressPreference = $ProgressPreference...
 ```
 
 ---
-# Running commands
+### Running commands
 - any execution should have provided patch to those file. 
 - so if we have such case: 
 ```
@@ -215,10 +201,10 @@ Note:
 ![4.2](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/04fig01.jpg) 
 
 --- 
-# # The pipeline: connecting commands
+### The pipeline: connecting commands
 --- 
 
-## Adding commands: ... snap-ins ... (quite old fashion, powershell 1.0)
+### Adding commands: ... snap-ins ... (quite old fashion, powershell 1.0)
 ```
 PS C:\code\powershellQuickStart> Get-PSSnapin -Registered
 Name        : Microsoft.BDD.PSSnapIn
@@ -228,7 +214,7 @@ PS C:\code\powershellQuickStart> Add-PSSnapin Microsoft.BDD.PSSnapIn
 ```
 
 ---
-## Adding commands: ... modules ...
+### Adding commands: ... modules ...
 ```
 Get-Module 
 #What module we have locally available?
@@ -250,13 +236,13 @@ UnInstall-Module   PasswordsGenerator -whatif
 ```
 
 --- 
-## Adding commands: ... functions ...
+### Adding commands: ... functions ...
 ```
 . .\fx-Get-ZBFunction.ps1 
 ```
 
 --- 
-## Objects: data by another name
+### Objects: data by another name
 ```
 $string="This is a variable"
 $string
@@ -338,7 +324,7 @@ Mode          LastWriteTime   Length Name
 ```
 
 ---
-## input, output
+###  output
 ```
 $dir >> Plik.txt 
 $dir | Out-File P-$((get-date -format s).Replace(':'.,'').txt 
@@ -350,9 +336,11 @@ PS C:\Code> type .\CSVFile.csv
 "PSPath","PSParentPath","PSChildName","PSDrive","PSProvider","PSIsContainer","Mode","BaseName","Target","LinkType","Name","FullName","Parent","Exists","Root","Extension","CreationTime","CreationTimeUtc","LastAccessTime","LastAccessTimeUtc","LastWriteTime","LastWriteTimeUtc","Attributes"
 "Microsoft.PowerShell.Core\FileSystem::C:\Code\bin","Microsoft.PowerShell.Core\FileSystem::C:\Code","bin","C","Microsoft.PowerShell.Core\FileSystem","True","d-----","bin","System.Collections.Generic.List`1[System.String]",,"bin","C:\Code\bin","Code","True","C:\","","09.09.2017 22:22:26","09.09.2017 20:22:26","09.09.2017 22:24:28","09.09.2017 20:24:28","09.09.2017 22:24:28","09.09.2017 20:24:28","Directory"
 ```
+---
+### Input
 
 --- 
-## Simple script 
+### Simple script 
 ```
 echo "`necho `'To jest skrypt"'" >  .\script.ps1
 ```
@@ -367,6 +355,7 @@ To jest argument zmiennej
 # Homework selection: write script for specific needs
 * return date and time of the last restart - it should return at least two properties: name of machine and datetime of event 
 * test if a specified application has been installed and if it happens after a date of creating a new version of the software (stored somewhere in local machine as MSI package). if the test goes OK: install unattended that newer version of the software. 
-* write script which will remove all logs older than one year, and compress older than 30 days in c:\
+* write script which will remove all logs older than one year, and compress older than 30 days in c:\oldLogs 
+* test if specified (as argument of script) service is installed, is working. If not - start it. 
 --- 
 # ??? 
