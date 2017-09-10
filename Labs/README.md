@@ -1,3 +1,4 @@
+Reduced list based on https://morelunches.com/2012/11/01/learn-powershell-3-in-a-month-of-lunches-2nd-ed/ 
 ## Lab: Using the Help System 
 1. First, run Update-Help and ensure it completes without errors. That will get a copy of the help on your local computer. This requires an Internet connection, and requires that the shell be running under elevated privileges (which means it must say “Administrator” in the shell’s window title bar).
 2. Can you find any cmdlets capable of converting other cmdlets’ output into HTML?
@@ -104,8 +105,3 @@ Following the principle of filter left, try to accomplish the following:
 4. Using Get-Service, is it possible to display a list of services that have a start type of Automatic, but that aren’t currently started?
 5. Display a list of hotfixes that were installed by the Administrator, and which are updates. Note that some hotfixes won’t have an “installed by” value – that’s okay.
 6. Display a list of all processes running as either Conhost or Svchost.
-
-
-
-
-
