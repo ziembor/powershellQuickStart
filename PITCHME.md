@@ -7,15 +7,11 @@ delivered (or not :)) by Ziemek Borowski, with some lab, homework and code revie
         - [Summary](#summary)
         - [Method of participation](#method-of-participation)
         - [Participant requirements](#participant-requirements)
-            - [Required knowledge / skills](#required-knowledge--skills)
-            - [Required equipment](#required-equipment)
         - [Agenda](#agenda)
         - [Agenda cont'ed](#agenda-conted)
         - [Homework](#homework)
         - [Supporting sources](#supporting-sources)
         - [What is PowerShell?](#what-is-powershell)
-            - [before](#before)
-        - [Envisioned by [Jeffery Snover]() - 2002](#envisioned-by-jeffery-snover---2002)
         - [PowerShell scope of use](#powershell-scope-of-use)
         - [How to apply for everyday tasks](#how-to-apply-for-everyday-tasks)
         - [Let's start](#lets-start)
@@ -422,4 +418,4 @@ any other send as request to me... and approved.
 Delivery - as *.zip file containing compresed file or on GIST and link. 
 </small>
 --- 
-# ??? 
+# Any questions, comment, demands??? 
