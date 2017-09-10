@@ -83,7 +83,7 @@ I expect one week for homework done. In middle of that time, I will organize off
 ---
 ### Supporting sources
 * ['Using Windows PowerShell'](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/fundamental/using-windows-powershell) / free
-* ['Learn Windows PowerShell 3 in a Month of Lunches, Second Edition' by Don Jones and Jeffery Hicks Publisher: Manning Publications](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/) / paid, here Safair Books Online 
+* ['Learn Windows PowerShell 3 in a Month of Lunches, Second Edition' by Don Jones and Jeffery Hicks Publisher: Manning Publications](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/) / paid, here Safair Books Online (+ [video on YouTube](https://www.youtube.com/playlist?list=PL6D474E721138865A&feature=view_all))
 * [MikeFal/IntroToPowershell](https://github.com/MikeFal/IntroToPowershell) / free
 * Rafał Kraik [Powershell dla administratora Windows - kompletny kurs](https://www.udemy.com/powershell-dla-administratora-windows/) / paid, Udemy
 * + i.e. resources @ https://mva.microsoft.com/ 
