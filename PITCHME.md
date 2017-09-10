@@ -407,12 +407,16 @@ To jest argument zmiennej
 
 ---
 ### Homework 
-<small>
+
 Homework selection: write script for specific needs
-* return date and time of the last restart - it should return at least two properties: name of machine and datetime of event 
-* test if a specified application has been installed and if it happens after a date of creating a new version of the software (stored somewhere in local machine as MSI package). if the test goes OK: install unattended that newer version of the software. 
-* write script which will remove all logs older than one year, and compress older than 30 days in c:\oldLogs 
-* test if specified (as argument of script) service is installed, is working. If not - start it. 
+<small>
+<li> return date and time of the last restart - it should return at least two properties: name of machine and datetime of event 
+
+<li> test if a specified application has been installed and if it happens after a date of creating a new version of the software (stored somewhere in local machine as MSI package). if the test goes OK: install unattended that newer version of the software. 
+
+<li> write script which will remove all logs older than one year, and compress older than 30 days in c:\oldLogs 
+
+<li> test if specified (as argument of script) service is installed, is working. If not - start it. 
 
 any other send as request to me... and approved.
 Delivery - as *.zip file containing compresed file or on GIST and link. 
