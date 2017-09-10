@@ -3,7 +3,43 @@ very quick - up to 6 hours
 delivered (or not :)) by Ziemek Borowski, with some lab, homework and code review
 
 --- 
+<!-- TOC -->
 
+- [PowerShell Quick Start](#powershell-quick-start)
+    - [Summary](#summary)
+    - [Method of participation](#method-of-participation)
+        - [Participant requirements](#participant-requirements)
+            - [Required knowledge / skills](#required-knowledge--skills)
+            - [Required equipment](#required-equipment)
+    - [Agenda](#agenda)
+        - [Agenda cont'ed](#agenda-conted)
+        - [Homework](#homework)
+    - [Supporting sources](#supporting-sources)
+    - [What is PowerShell?](#what-is-powershell)
+            - [before](#before)
+    - [Envisioned by [Jeffery Snover]() - 2002](#envisioned-by-jeffery-snover---2002)
+        - [PowerShell scope of use](#powershell-scope-of-use)
+        - [How to apply for everyday tasks](#how-to-apply-for-everyday-tasks)
+        - [Let's start](#lets-start)
+        - [Using help](#using-help)
+        - [Discover - commands](#discover---commands)
+        - [Discover - parameters](#discover---parameters)
+        - [Running commands](#running-commands)
+        - [The pipeline: connecting commands](#the-pipeline-connecting-commands)
+        - [Adding commands: ... snap-ins ... (quite old fashion, powershell 1.0)](#adding-commands--snap-ins--quite-old-fashion-powershell-10)
+        - [Adding commands: ... modules ...](#adding-commands--modules-)
+        - [Adding commands: ... functions ...](#adding-commands--functions-)
+        - [Objects: data by another name](#objects-data-by-another-name)
+    - [Formatting: how to do it properly](#formatting-how-to-do-it-properly)
+    - [Filtering and comparison](#filtering-and-comparison)
+    - [Variables](#variables)
+        - [Variables cont'ed](#variables-conted)
+        - [output](#output)
+        - [Input](#input)
+
+<!-- /TOC -->
+
+---
 ## Summary
 Quick PowerShell course for people with limited experience on system administrator scripting (5 hours in person meeting + homework + online homework review session). The course is based on ["Learn Windows PowerShell 3 in a Month of Lunches, Second Edition' by Don Jones and Jeffery Hicks"](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/).  
 
