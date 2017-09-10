@@ -21,8 +21,9 @@ Quick PowerShell course for people with limited experience on system administrat
 - basic knowledge on Windows Server administration and basic knowledge on computer programming (simple VBA macros, Lego Robotics, VBScript or cmd.exe are enough). 
 
 #### Required equipment
-- Windows 7 or Windows 10 virtual machine  
-- working access to 'Laboratory' with Windows Server 2016 
+- Windows 7 or Windows 10 virtual machine with possibilyt to install software (WMF 5.1, from Microsoft trusted source) 
+or
+- working access to laboratory with Windows Server 2016 
 
 ---
 ## Agenda
@@ -190,17 +191,9 @@ HelpUri             ScriptProperty System.Object HelpUri {get=$oldProgressPrefer
 - so if we have such case: 
 ```
 PS C:\code\bin> dir
-
-
-    Directory: C:\code\bin
-
-
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
 -a----       22.06.2017     16:38       86325248 calc2017.exe
--a----       09.09.2017     21:31             66 script.ps1
-
-
 PS C:\code\bin> calc2017.exe
 calc2017.exe : The term 'calc2017.exe' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of
 the name, or if a path was included, verify that the path is correct and try again.
@@ -214,15 +207,18 @@ At line:1 char:1
 Suggestion [3,General]: The command calc2017.exe was not found, but does exist in the current location. Windows PowerShell does not load commands from the current location by default. If you trust this command, instead type: ".\calc2017.exe". See "get-help about_Command_Precedence" for more details.
 PS C:\code\bin> .\calc2017.exe
 ```
+
+---
 [The anatomy of a command ](./assets/CommandParameters.png)
 
 Note:
 ![4.2](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/04fig01.jpg) 
+
 --- 
 # # The pipeline: connecting commands
 --- 
 
-## Adding commands: function, snap-ins, modules
+## Adding commands: ... snap-ins ... (quite old fashion, powershell 1.0)
 ```
 PS C:\code\powershellQuickStart> Get-PSSnapin -Registered
 Name        : Microsoft.BDD.PSSnapIn
@@ -232,32 +228,33 @@ PS C:\code\powershellQuickStart> Add-PSSnapin Microsoft.BDD.PSSnapIn
 ```
 
 ---
-or 
+## Adding commands: ... modules ...
 ```
-# get info on load modules
 Get-Module 
 #What module we have locally available?
 Get-Module -ListAvailable 
-# Starting powershell 4.0 (or 3.0) modules are loaded automatically if needded, 
+# Starting powershell 4.0 (or 3.0) modules can be loaded automatically
 # but in powershell 2.0 we need do it manually 
 Import-Module 	Defender
 Remove-module   Defender
 # what in module 
 Get-Command -Module Defender  
-# PowerShellGallery.com
-Find-Module  PasswordsGenerator
+Find-Module  PasswordsGenerator # PowerShellGallery.com
 
 # PS C:\WINDOWS\system32> Find-Module   PasswordsGenerator
-#
-#Version    Name                                Repository           Description
-#-------    ----                                ----------           -----------
-#2.5.0        PasswordsGenerator                PSGallery              PasswordsGenerator is a PowerShell module for automating the...
+Version    Name                                Repository           Description
+2.5.0      PasswordsGenerator                PSGallery              PasswordsGenerator is a PowerShell module for automating the...
 Install-Module   PasswordsGenerator
-# Update 
-Install-Module   PasswordsGenerator 
-# Uninstall 
+Update-Module   PasswordsGenerator 
 UnInstall-Module   PasswordsGenerator -whatif 
 ```
+
+--- 
+## Adding commands: ... functions ...
+```
+. .\fx-Get-ZBFunction.ps1 
+```
+
 --- 
 ## Objects: data by another name
 ```
@@ -286,21 +283,83 @@ $date.addDays(365)
 --- 
 ## Formatting: how to do it properly
 ```
-dir | ft #ft is alias for Format-Table 
-dir | select-object 
+dir | ft -auto #ft is alias for Format-Table 
+Get-ChildItem | Format-List 
+dir | select-object FullName,Last* 
 ```
 --- 
 ## Filtering and comparison
-`where-object`
+`where-object` - allow to select from results something what match for our needs
+```
+dir | Where-Object LastWriteTime -gt 2017-09-01
+ls|Where {$_.LastWriteTime -gt 2017-09-01 -and 
+		$_.Length -gt 100}
+        
+
+```
 
 --- 
-## Variables, input, output
+## Variables
+we already use some of variables above: 
+``` 
+$zmienna;$string;$_;$date
+``` 
+Usually we use notation with dolar sign as above, but: 
+```
+PS C:\Code> $string = "Some characters"
+PS C:\Code> $string
+Some characters
+PS C:\Code> Get-Variable -Name string
+
+Name                           Value
+----                           -----
+string                         Some characters
+```
+
+--- 
+### Variables cont'ed 
+I mention that everything in PowerShell is object. List of array also are object. 
+```
+PS C:\Code> $dirVar = dir -recurse
+PS C:\Code> $dirVar.Count
+33
+PS C:\Code> $dirVar | ft -a
+
+    Directory: C:\Code
+
+
+Mode          LastWriteTime Length Name
+----          ------------- ------ ----
+d----- 09.09.2017     22:24        bin
+d----- 09.09.2017     21:56        powershellQuickStart
+
+    Directory: C:\Code\bin
+Mode          LastWriteTime   Length Name
+```
+
+---
+## input, output
+```
+$dir >> Plik.txt 
+$dir | Out-File P-$((get-date -format s).Replace(':'.,'').txt 
+Get-ChildItem -Recurse | Export-csv CSVFile.csv 
+```
+```
+PS C:\Code> type .\CSVFile.csv
+#TYPE System.IO.DirectoryInfo
+"PSPath","PSParentPath","PSChildName","PSDrive","PSProvider","PSIsContainer","Mode","BaseName","Target","LinkType","Name","FullName","Parent","Exists","Root","Extension","CreationTime","CreationTimeUtc","LastAccessTime","LastAccessTimeUtc","LastWriteTime","LastWriteTimeUtc","Attributes"
+"Microsoft.PowerShell.Core\FileSystem::C:\Code\bin","Microsoft.PowerShell.Core\FileSystem::C:\Code","bin","C","Microsoft.PowerShell.Core\FileSystem","True","d-----","bin","System.Collections.Generic.List`1[System.String]",,"bin","C:\Code\bin","Code","True","C:\","","09.09.2017 22:22:26","09.09.2017 20:22:26","09.09.2017 22:24:28","09.09.2017 20:24:28","09.09.2017 22:24:28","09.09.2017 20:24:28","Directory"
+```
 
 --- 
 ## Simple script 
 ```
-PS C:\code> echo "param(`$zmienna) `necho `$zmienna" >  .\script.ps1
-PS C:\code> .\script.ps1 -zmienna "To jest argument zmiennej"
+echo "`necho `'To jest skrypt"'" >  .\script.ps1
+```
+Ok, let complicate a little bit... 
+```
+PS p:\> echo "param(`$zmienna) `necho `$zmienna" > script.ps1
+PS p:\> .\script.ps1 -zmienna "To jest argument zmiennej"
 To jest argument zmiennej
 ````
 
