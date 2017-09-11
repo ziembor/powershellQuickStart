@@ -3,22 +3,13 @@ very quick - up to 6 hours
 delivered (or not :)) by Ziemek Borowski, with some lab, homework and code review
 
 --- 
-- [PowerShell Quick Start](#powershell-quick-start) - table of content
-        - [Method of participation](#method-of-participation)
-        - [Participant requirements](#participant-requirements)
-        - [Supporting sources](#supporting-sources)
-        - [What is PowerShell?](#what-is-powershell)
-        - [Let's start](#lets-start)
-        - [Using help](#using-help)
-        - [Running commands](#running-commands)
-        - [The pipeline: connecting commands](#the-pipeline-connecting-commands)
-        - [Adding commands: ... modules ...](#adding-commands--modules-)
-        - [Objects: data by another name](#objects-data-by-another-name)
-        - [Formatting: how to do it properly](#formatting-how-to-do-it-properly)
-        - [Filtering and comparison](#filtering-and-comparison)
-        - [Simple script](#simple-script)
-        - [Homework](#homework-1)
-
+[PowerShell Quick Start](#powershell-quick-start) - table of content, [Method of participation](#method-of-participation) [Participant requirements](#participant-requirements), [Supporting sources](#supporting-sources),
+[What is PowerShell?](#what-is-powershell), [Let's start](#lets-start),
+[Using help](#using-help), [Running commands](#running-commands),
+[The pipeline: connecting commands](#the-pipeline-connecting-commands),
+[Adding commands: ... modules ...](#adding-commands--modules-), [Objects: data by another name](#objects-data-by-another-name),
+[Formatting: how to do it properly](#formatting-how-to-do-it-properly), [Filtering and comparison](#filtering-and-comparison),
+[Simple script](#simple-script), [Homework](#homework-1)
 
 ---
 ### Summary
@@ -65,9 +56,9 @@ I expect one week for homework done. In middle of that time, I will organize off
 ---
 ### Supporting sources
 * ['Using Windows PowerShell'](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/fundamental/using-windows-powershell) / free
-* ['Learn Windows PowerShell 3 in a Month of Lunches, Second Edition' by Don Jones and Jeffery Hicks Publisher: Manning Publications](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/) / paid, SafariBooksOnline (+ [video on YouTube](https://www.youtube.com/playlist?list=PL6D474E721138865A&feature=view_all))
+* ['Learn Windows PowerShell 3 in a Month of Lunches, Second Edition'](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/) by Don Jones and Jeffery Hicks Publisher: Manning Publications / paid, also in  SafariBooksOnline (+ [video on YouTube](https://www.youtube.com/playlist?list=PL6D474E721138865A&feature=view_all))
 * [MikeFal/IntroToPowershell](https://github.com/MikeFal/IntroToPowershell) / free
-* [Windows PowerShell Cookbook, 3rd Edition](https://www.safaribooksonline.com/library/view/windows-powershell-cookbook/9781449359195/) by Lee Holmes /cpaid, SafariBooksOnline 
+* [Windows PowerShell Cookbook, 3rd Edition](https://www.safaribooksonline.com/library/view/windows-powershell-cookbook/9781449359195/) by Lee Holmes / paid, also in SafariBooksOnline 
 * Rafał Kraik [Powershell dla administratora Windows - kompletny kurs](https://www.udemy.com/powershell-dla-administratora-windows/) / paid, Udemy
 * `+` i.e. resources @ https://mva.microsoft.com/ 
 
@@ -211,6 +202,62 @@ PS C:\code\bin> .\calc2017.exe
 
 ---
 ![The anatomy of a command ](assets/CommandParameters.png)
+
+--- 
+### cmdlet? 
+cmdlet - 'command let' is internal PowerShell command (usually provided in binary form). 
+function - command in powershell which can be defined in powershell 
+command - external command (*.exe, *.cmd, *.bat)
+
+It's strongly recommend (and always true for build-in cmdlets) to use name schema
+Verb-Noun (`Get-Command`, `Add-User`).
+
+---
+### '`', `;`, $_, $?,
+- $_ and $PSItem stand for “The current object in the PowerShell pipeline".
+- $? and $LASTEXITCODE stand "exist code from last command"
+- '`' - escape next character, i.e. `n - \n, ` at end of line supersed EOL 
+- ';' - separate commands in the same line 
+---
+### conditions 
+```
+#You can use -eq, -ne, -gt, -lt, -le, -ge  to perform logical comparisons 
+'1 -eq 2 returns: ' + (1 -eq 2)
+'1 -lt 2 returns: ' + (1 -lt 2)
+```
+Get-Help about_If ; Get-Help about_While ; Get-Help about_ForEach ; Get-Help about_Switch
+
+```
+If((Test-Path 'c:\temp') -eq $false){ New-Item -ItemType Directory -Path 'c:\temp' }
+Remove-Item -Recurse 'C:\TEMP'
+If((Test-Path 'C:\TEMP') -eq $false){
+    New-Item -ItemType Directory -Path 'C:\TEMP'
+    }
+if(-not (Test-Path 'C:\temp')){
+New-Item -ItemType Directory -Path 'C:\TEMP'
+}
+```
+
+---
+### Errors 
+```
+$x = 1/0
+
+#We can pull out the most recent error if necessary
+$Error[0]
+$Error[0] | gm
+
+#Try/Catch/Finally allow us to better handle errors. 
+$x = 1
+try{ $x = 1/0 } 
+catch {     Write-Warning "Operation failed."}
+finally{  $x = 0 }
+
+"`$x is $x"
+
+#We can use throw or Write-Error to generate error messages
+Write-Error "Something is wrong on the holodeck!"
+```
 
 --- 
 ### The pipeline: connecting commands
