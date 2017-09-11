@@ -1,0 +1,2 @@
+param($argument)
+echo $argument
