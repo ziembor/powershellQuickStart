@@ -78,10 +78,10 @@ I expect one week for homework done. In middle of that time, I will organize off
 #### before 
 - DOS's `command.com`, [cmd.exe](https://ss64.com/nt/), [KixStart](http://www.kixtart.org/), [VBScript](https://ss64.com/vb/)/[JScript]() (based on Windows Scripting Host (WHS)
 - bash, python, perl (on Unicses or via Cygwin or native ports)
+
 ```
 for /L %u in (1,2,99) do echo %i 
 IF %ERRORLEVEL% EQU 0 (Echo No error found) ELSE (Echo An error was found)
-
 ```
 
 ---
@@ -205,9 +205,9 @@ PS C:\code\bin> .\calc2017.exe
 
 --- 
 ### cmdlet? 
-cmdlet - 'command let' is internal PowerShell command (usually provided in binary form). 
-function - command in powershell which can be defined in powershell 
-command - external command (*.exe, *.cmd, *.bat)
+- cmdlet - 'command let' is internal PowerShell command (usually provided in binary form). 
+- function - command in powershell which can be defined in powershell 
+- command - external command (*.exe, *.cmd, *.bat)
 
 It's strongly recommend (and always true for build-in cmdlets) to use name schema
 Verb-Noun (`Get-Command`, `Add-User`).
@@ -216,8 +216,9 @@ Verb-Noun (`Get-Command`, `Add-User`).
 ### '`', `;`, $_, $?,
 - $_ and $PSItem stand for “The current object in the PowerShell pipeline".
 - $? and $LASTEXITCODE stand "exist code from last command"
-- '`' - escape next character, i.e. `n - \n, ` at end of line supersed EOL 
-- ';' - separate commands in the same line 
+- ` - escape next character, i.e. ``n - \n, ` at end of line supersed EOL 
+- ; - separate commands in the same line 
+
 ---
 ### conditions 
 ```
@@ -449,7 +450,8 @@ continiue on next slide,
 
 ---
 <small>
-<li> test if www.test.com is available on ICMP test, if not
+<li> test if www.test.com is available on ICMP test, if not set route to specified network to new router
+<li> copy all files with extension *.pdf to the same folder (with making sure that you will don't overwrite copies)
 
 </small>
 
