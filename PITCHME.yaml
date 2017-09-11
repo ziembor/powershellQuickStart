@@ -5,3 +5,4 @@ remote-control: true
 #theme : moon
 #logo : assets/logo.png
 vertical-center : false
+highlight : mono-blue
