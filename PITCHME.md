@@ -130,11 +130,8 @@ IF %ERRORLEVEL% EQU 0 (Echo No error found) ELSE (Echo An error was found)
 `powershell.exe` or `ise.exe` 
 ```
 Start-Transcript $env:Temp\GettingStarted.txt -Force
-
 Set-ExecutionPolicy RemoteSigned -Force -Scope CurrentUser
-
 get-host 
-
 Stop-Transcript
 notepad $env:Temp\GettingStarted.txt
 ```
@@ -153,11 +150,11 @@ help get-ChildItem
 help get-ChildItem -examples 
 help get-ChildItem -detailed
 help get-ChildItem -full 
-help get-ChildItem -examples
 help get-ChildItem -online
+help about* 
 Get-Help Get-ChildItem -ShowWindow
+show-command Get-ChildItem 
 ```
-* show-command Get-ChildItem 
 
 ---?image=_Memes/CopingAndPasting.png&size=auto 90%
 
