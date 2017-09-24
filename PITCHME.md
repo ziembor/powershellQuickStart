@@ -2,6 +2,7 @@
 very quick - up to 6 hours
 delivered (or not :)) by Ziemek Borowski, with some lab, homework and code review
 
+---?image=_Images/2017-09-24_13_10_11-Windows_PowerShell_ISE.png&size=auto 90%
 --- 
 [PowerShell Quick Start](#powershell-quick-start) - table of content, [Method of participation](#method-of-participation) [Participant requirements](#participant-requirements), [Supporting sources](#supporting-sources),
 [What is PowerShell?](#what-is-powershell), [Let's start](#lets-start),
