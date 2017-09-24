@@ -1,0 +1,186 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <title>[ GitPitch ] ziembor/powershellQuickStart/master</title>
+    <meta content="Markdown Presentation powered by GitPitch." name="description">
+    <meta content="GitHub, GitLab, Bitbucket, Markdown, Slideshow, Presentation, Developers, PITCHME" name="keywords">
+    
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    
+    <link rel="icon" href="./assets/img/favicon.ico"/>
+    <link href="./assets/reveal.js/3.5.0/css/reveal.css" rel="stylesheet" type="text/css"/>
+    <link href="./assets/reveal.js/3.5.0/css/theme/white.css" rel="stylesheet" type="text/css"/>
+    
+    <link href="./assets/reveal.js/3.5.0/css/print/paper.css" rel="stylesheet" type="text/css"/>
+    
+    <link href="./assets/highlight.js/9.12.0/mono-blue.css" rel="stylesheet" type="text/css"/>
+    <link href="./assets/octicons/3.5.0/octicons.css" rel="stylesheet" type="text/css"/>
+    <link href="./assets/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <style>
+        .reveal .speaker-notes {
+            background-color: #2a76dd;
+            opacity : 0.7;
+        }
+        .centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size:1.3em;
+            font-weight: bold;
+        }
+    </style>
+
+    <style>
+    .reveal .slides section .fragment.current-only {
+        visibility: visible;
+        display: none;
+    }
+    .reveal .slides section .fragment.current-only.current-fragment {
+        display: block;
+    }
+    .line {
+        display: block;
+    }
+    .line.focus {
+        /* opacity: 1.0; */
+    }
+    </style>
+
+    
+
+    
+
+</head>
+<body>
+    
+    <div style="position: fixed; bottom: 10px; left: 20px; z-index: 999">
+        
+            
+            <span class="octicon octicon-mark-github"
+                  style="font-size:0.9em; color: black"></span>
+            
+            
+            
+            
+            <span style="color:black; font-size:0.8em; font-family: Source Sans Pro, Helvetica, sans-serif;">ziembor / powershellQuickStart</span>
+        
+    </div>
+
+    <div class="reveal">
+        <div class="slides">
+            
+            <section data-markdown="./assets/md/PITCHME.md"
+                     data-separator="(^---$|^---\?.*)"
+                     data-separator-vertical="(^\+\+\+$|^\+\+\+\?.*)"
+                     data-separator-notes="^Note:"
+                     data-charset="utf-8">
+            </section>
+            
+        </div>
+    </div>
+    <script src="./assets/reveal.js/3.5.0/js/reveal.js"></script>
+    <script src="./assets/reveal.js/3.5.0/lib/js/head.min.js"></script>
+    <script src="./assets/jquery/2.2.4/jquery.min.js"></script>
+
+    
+
+    <script>
+        Reveal.initialize({
+            embedded: true,
+            margin: 0.0,
+            showNotes: false,
+            transition: 'slide',
+            backgroundTransition: 'slide',
+            autoSlide: 0,
+            loop: false,
+            center: false,
+            rtl: false,
+            shuffle: false,
+            mouseWheel: false,
+            slideNumber: true,
+            history: true,
+            
+            dependencies: [
+                { src: "./assets/reveal.js/3.5.0/plugin/markdown/marked.js"},
+                { src: "./assets/reveal.js/3.5.0/plugin/markdown/markdown.js"},
+                
+                
+                { src: "./assets/reveal.js/3.5.0/plugin/notes/notes.js", async: true },
+                
+                
+                { src: './assets/highlight.js/9.12.0/highlight.js' },
+                { src: './assets/highlight.js/9.12.0/reveal-code-focus-1.0.0-mod.js',
+                  callback: function() {
+                    RevealCodeFocus();
+                  }
+                },
+                
+                
+            ]
+        });
+
+        Reveal.configure({
+            keyboard: {
+                88: function() { // bind "x" key to "select" code block content
+
+                    var currentSlide = Reveal.getCurrentSlide();
+                    var preBlock = $(currentSlide).find("pre");
+
+                    if(preBlock.length > 0) {
+
+                        if (window.getSelection) {
+                            var range = document.createRange();
+                            range.selectNodeContents(preBlock[0]);
+                            var selection = window.getSelection();
+                            selection.removeAllRanges();
+                            selection.addRange(range);
+                        }
+                    }
+                }
+            }
+        });
+
+        function enterFullscreen() {
+            Reveal.triggerKey(70);
+        };
+
+        function enterOverview() {
+            Reveal.toggleOverview();
+        };
+
+        function enterBlackout() {
+            Reveal.togglePause();
+        };
+
+        function enableEvents() {
+            Reveal.addEventListeners();
+        };
+
+        function disableEvents() {
+            Reveal.removeEventListeners();
+        };
+
+    </script>
+
+    
+    <script>
+        Reveal.configure({
+            keyboard: {
+                37: 'prev',
+                39: 'next'
+            }
+        });
+    </script>
+    
+
+
+    <script>
+        
+    </script>
+</body>
+</html>
