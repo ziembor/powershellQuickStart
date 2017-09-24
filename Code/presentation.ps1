@@ -16,6 +16,8 @@ help get-ChildItem -detailed
 help get-ChildItem -full 
 help get-ChildItem -examples
 help get-ChildItem -online
+help about*
+help about_variables -ShowWindow
 Get-Help Get-ChildItem -ShowWindow
 show-command Get-ChildItem 
 #endregion
@@ -63,7 +65,7 @@ $vardatenextyear = $vardate.AddYears(1)
 $vardate
 $vardate.hour 
 $vardate.hour = 4
-$strdate=(get-date -format s).Replace(':')
+$strdate=(get-date -format s).Replace(':','')
 
 #endregion
 #region constructing new object
@@ -318,6 +320,25 @@ Repeat-text –s "I will start powershell every day"
 
 
 #endregion
+#region Errors 
+$x = 1/0
+$? ; $LASTEXITCODE 
+#We can pull out the most recent error if necessary
+$Error[0]
+$Error[0] | gm
+
+#Try/Catch/Finally allow us to better handle errors. 
+$x = 1
+try{ $x = 1/0 } 
+catch {     Write-Warning "Operation failed."}
+finally{  $x = 0 }
+
+"`$x is $x"
+
+#We can use throw or Write-Error to generate error messages
+Write-Error "Something is wrong on the holodeck!"
+
+#endregion
 #region Creating a pipeline command
 function SimpleWrite-Object {
     BEGIN { 
@@ -332,7 +353,6 @@ function SimpleWrite-Object {
     }
 }
 Get-Process | SimpleWrite-Object
-
 #or with more decoration
 function SimpleWrite-Object {
  param(
@@ -351,12 +371,9 @@ function SimpleWrite-Object {
     }
 }
 Get-process | SimpleWrite-Object
-
- 	
 #filters
 filter NotepadFilter { if ($_.Name -eq 'notepad') { $_ } }
 get-process | NotepadFilter
-
 #endregion
 #region regex
 

@@ -60,7 +60,7 @@ I expect one week for homework done. In middle of that time, I will organize off
 * [MikeFal/IntroToPowershell](https://github.com/MikeFal/IntroToPowershell) / free
 * [Windows PowerShell Cookbook, 3rd Edition](https://www.safaribooksonline.com/library/view/windows-powershell-cookbook/9781449359195/) by Lee Holmes / paid, also in SafariBooksOnline 
 * Rafał Kraik [Powershell dla administratora Windows - kompletny kurs](https://www.udemy.com/powershell-dla-administratora-windows/) / paid, Udemy
-* `+` i.e. resources @ https://mva.microsoft.com/ 
+* `+` i.e. resources @ https://mva.microsoft.com/, [Veeam Powershell kickstart](https://go.veeam.com/rs/veeam/images/kickstart_powershell_1_slides.pdf)
 
 --- 
 ### What is PowerShell? 
@@ -76,10 +76,10 @@ I expect one week for homework done. In middle of that time, I will organize off
 
 --- 
 #### before 
-- DOS's `command.com`, [cmd.exe](https://ss64.com/nt/), [KixStart](http://www.kixtart.org/), [VBScript](https://ss64.com/vb/)/[JScript]() (based on Windows Scripting Host (WHS)
+- DOS's `command.com`, [cmd.exe](https://ss64.com/nt/), [KixStart](http://www.kixtart.org/), [VBScript](https://ss64.com/vb/)/[JScript]() (based on Windows Scripting Host (WHS, `cscript.exe command.vbs`)
 - bash, python, perl (on Unicses or via Cygwin or native ports)
 
-```
+```batch
 for /L %u in (1,2,99) do echo %i 
 IF %ERRORLEVEL% EQU 0 (Echo No error found) ELSE (Echo An error was found)
 ```
@@ -91,9 +91,10 @@ IF %ERRORLEVEL% EQU 0 (Echo No error found) ELSE (Echo An error was found)
 - released as PowerShell RC1 - 2006-04
 - first product requiring it was Exchange Server 2007
 - PowerShell 2.0 - basic remoting 
-- Windows Server 2008 R2 - PowerShell 3.0 
-- Windows Server 2012 - PowerShell 4.0 - DSC - Desired State Configuration
-- Windows Server 2016 - PowerShell 5.1 
+- Windows Server 2008 R2 - Windows PowerShell 3.0 
+- Windows Server 2012 - Windows PowerShell 4.0 - DSC - Desired State Configuration
+- Windows Server 2016 - Windows PowerShell 5.1 
+- PowerShell Core 6.0 - also on Linux, macOS (and opensource)
 
 ---
 ### PowerShell scope of use 
@@ -392,6 +393,16 @@ d----- 09.09.2017     21:56        powershellQuickStart
     Directory: C:\Code\bin
 Mode          LastWriteTime   Length Name
 ```
+
+---
+### Special variables 
+$_ 
+$Args 
+$Error
+$Home 
+$PSHome 
+$true, $false, $null 
+$(command)
 
 ---
 ###  output
