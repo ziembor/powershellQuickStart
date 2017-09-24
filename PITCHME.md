@@ -1,3 +1,5 @@
+---?image=_Images/2017-09-24_13_10_11-Windows_PowerShell_ISE.png&size=auto 90%
+
 # PowerShell Quick Start
 very quick - up to 6 hours
 delivered (or not :)) by Ziemek Borowski, with some lab, homework and code review
@@ -5,8 +7,7 @@ delivered (or not :)) by Ziemek Borowski, with some lab, homework and code revie
 ---?image=_Images/2017-09-24_13_10_11-Windows_PowerShell_ISE.png&size=auto 90%
 
 --- 
-[PowerShell Quick Start](#powershell-quick-start) - table of content, [Method of participation](#method-of-participation) [Participant requirements](#participant-requirements), [Supporting sources](#supporting-sources),
-[What is PowerShell?](#what-is-powershell), [Let's start](#lets-start),
+[PowerShell Quick Start](#powershell-quick-start) - table of content, [Method of participation](#method-of-participation) [Participant requirements](#participant-requirements), [Supporting sources](#supporting-sources), [What is PowerShell?](#what-is-powershell), [Let's start](#lets-start),
 [Using help](#using-help), [Running commands](#running-commands),
 [The pipeline: connecting commands](#the-pipeline-connecting-commands),
 [Adding commands: ... modules ...](#adding-commands--modules-), [Objects: data by another name](#objects-data-by-another-name),
@@ -15,7 +16,8 @@ delivered (or not :)) by Ziemek Borowski, with some lab, homework and code revie
 
 ---
 ### Summary
-Quick PowerShell course for people with limited experience on system administrator scripting (5 hours in person meeting + homework + online homework review session). The course is based on ["Learn Windows PowerShell 3 in a Month of Lunches, Second Edition' by Don Jones and Jeffery Hicks"](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/).  
+Quick PowerShell course for people with limited experience on system administrator scripting (5 hours in person meeting + homework + online homework review session). The course is based on ["Learn Windows PowerShell 3 in a Month of Lunches, Second Edition' by Don Jones and Jeffery Hicks"](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/) and [Veeam: LEARN POWERSHELL
+From Basics To A Coding Star](https://go.veeam.com/learn-powershell-basics-free-tutorial-course).  
 
 ---
 ### Method of participation
@@ -58,11 +60,12 @@ I expect one week for homework done. In middle of that time, I will organize off
 ---
 ### Supporting sources
 * ['Using Windows PowerShell'](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/fundamental/using-windows-powershell) / free
-* ['Learn Windows PowerShell 3 in a Month of Lunches, Second Edition'](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/) by Don Jones and Jeffery Hicks Publisher: Manning Publications / paid, also in  SafariBooksOnline (+ [video on YouTube](https://www.youtube.com/playlist?list=PL6D474E721138865A&feature=view_all))
+* ['Learn Windows PowerShell 3 in a Month of Lunches, Second Edition'](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/) by Don Jones and Jeffery Hicks <small>Manning Publications / paid, also in  SafariBooksOnline (+ [video on YouTube](https://www.youtube.com/playlist?list=PL6D474E721138865A&feature=view_all))</small>
+* [Windows PowerShell Cookbook, 3rd Edition](https://www.safaribooksonline.com/library/view/windows-powershell-cookbook/9781449359195/) by Lee Holmes <small>/ paid, also in SafariBooksOnline </small>
+* Rafał Kraik [Powershell dla administratora Windows - kompletny kurs](https://www.udemy.com/powershell-dla-administratora-windows/) <small>/ paid, Udemy</small>
+* `+` i.e. resources @ https://mva.microsoft.com/, [Veeam: LEARN POWERSHELL
+From Basics To A Coding Star](https://go.veeam.com/learn-powershell-basics-free-tutorial-course)
 * [MikeFal/IntroToPowershell](https://github.com/MikeFal/IntroToPowershell) / free
-* [Windows PowerShell Cookbook, 3rd Edition](https://www.safaribooksonline.com/library/view/windows-powershell-cookbook/9781449359195/) by Lee Holmes / paid, also in SafariBooksOnline 
-* Rafał Kraik [Powershell dla administratora Windows - kompletny kurs](https://www.udemy.com/powershell-dla-administratora-windows/) / paid, Udemy
-* `+` i.e. resources @ https://mva.microsoft.com/, [Veeam Powershell kickstart](https://go.veeam.com/rs/veeam/images/kickstart_powershell_1_slides.pdf)
 
 --- 
 ### What is PowerShell? 
@@ -221,9 +224,14 @@ Verb-Noun (`Get-Command`, `Add-User`).
 - $? and $LASTEXITCODE stand "exist code from last command"
 - ` - escape next character, i.e. ``n - \n, ` at end of line supersed EOL 
 - ; - separate commands in the same line 
+- $Args - list of script argument
+- $Error - array of errors (ussually as $Error[0])
+- $Home, $PSHome 
+- $true, $false, $null 
+- $(command)
 
 ---
-### conditions 
+### conditions, if, else 
 ```
 #You can use -eq, -ne, -gt, -lt, -le, -ge  to perform logical comparisons 
 '1 -eq 2 returns: ' + (1 -eq 2)
@@ -395,17 +403,6 @@ d----- 09.09.2017     21:56        powershellQuickStart
     Directory: C:\Code\bin
 Mode          LastWriteTime   Length Name
 ```
-
----
-### Special variables 
-$_ 
-$Args 
-$Error
-$Home 
-$PSHome 
-$true, $false, $null 
-$(command)
-
 ---
 ###  output
 ```
