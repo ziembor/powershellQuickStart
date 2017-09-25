@@ -8,47 +8,33 @@ delivered (or not :)) by Ziemek Borowski, with some lab, homework and code revie
 
 ---
 ### Hello! Instructor introduction
-<small>- Ziemek Borowski ziemek.borowski@pl.ibm.com
+<small>- Ziemek Borowski ziemek@ziembor.pl
 - MCSE NT 4.0, MCSA 2003, MCSA 2008, 2012, 2016, MCSE Cloud & Infra 2016, 2017 / Productivity 2016, IBM Domino Certified Administrator
 - Ex-:  Microsoft Most Valued Profesional (MVP), Microsoft Certified Trainer
 - co-leader of Exchange Server user group
-- IBM CIC Wroclaw & Katowice, senior it specialist, @ Allianz mailing team (previously also mailing for some Nordics like Archer) since 2012 (with some break)
 - Mailing, collaboration and productivity, but on Windows platform - over 20 years as system administrator, implementer/consultant
 </small>
 --- 
 ### Hello! Student introductions
 
-#### Let’s get acquainted:
-<small>
+
 - Your name
 - Company / team & account affiliation
 - Title/function
 - Subject of course experiences
 - Your expectations for the course
-</small>
 --- 
 #### Facilities  / social contract 
-<small>
 - Class hours: 9:00-15:00 with 60 min lunch break @ 12:00
 - Any interaction – great, but please allow me to finish sentence :)
 - Phones - outside, Messages (text, SameTime) –  quietly - Other activities – Ok, quietly, but training here has priority
 - Breaks – aprox. 10 minutes after about 1 hour
 - Any interaction apreciated – training is great posibility to meet your new team :)
 - Any other rules needed?
-</small>
 ---
 #### Important URLs
-<small>* Feedback survey 
-https://tapintofeb.victoria.ibm.com/forms/landing/org/app/57d0a30c-2a93-4f0f-817a-f68f4d03f99e/launch/index.html?form=F_Form1 
+* Feedback survey 
 * My IBM Github with courses materials https://github.com/ziembor
-</small>
---- 
-[PowerShell Quick Start](#powershell-quick-start) - table of content, [Method of participation](#method-of-participation) [Participant requirements](#participant-requirements), [Supporting sources](#supporting-sources), [What is PowerShell?](#what-is-powershell), [Let's start](#lets-start),
-[Using help](#using-help), [Running commands](#running-commands),
-[The pipeline: connecting commands](#the-pipeline-connecting-commands),
-[Adding commands: ... modules ...](#adding-commands--modules-), [Objects: data by another name](#objects-data-by-another-name),
-[Formatting: how to do it properly](#formatting-how-to-do-it-properly), [Filtering and comparison](#filtering-and-comparison),
-[Simple script](#simple-script), [Homework](#homework-1)
 
 ---
 ### Summary
@@ -475,10 +461,9 @@ To jest argument zmiennej
 ````
 
 ---
-### Homework 
+#### Homework 
 
 Homework selection: write script for specific needs
-<small>
 <li> return date and time of the last restart - it should return at least two properties: name of machine and datetime of event 
 
 <li> test if a specified application has been installed and if it happens after a date of creating a new version of the software (stored somewhere in local machine as MSI package). if the test goes OK: install unattended that newer version of the software. 
@@ -488,15 +473,12 @@ Homework selection: write script for specific needs
 <li> test if specified (as a parameter of a script) service is installed, is working. If not - start it. 
 
 <li> test if specified website is working, if not send mail to admin or write event to Windows Eventlog 
-</small>
+
 continiue on next slide,
 
 ---
-<small>
 <li> test if www.test.com is available on ICMP test, if not set route to specified network to new router
 <li> copy all files with extension *.pdf to the same folder (with making sure that you will don't overwrite copies)
-
-</small>
 
 any other send a request to me... and probably will be approved.
 Delivery - as mail with *.zip file containing compressed script or on GIST and link. 

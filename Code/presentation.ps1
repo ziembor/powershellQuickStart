@@ -62,14 +62,20 @@ At line:1 char:1
 #region Manipulating dates
 
 get-date -format s
+get-date -format g
+Get-Date -UFormat "%Y%m%d"
+
 $vardate = get-date
 $vardate = get-date -hour 14 -Minute 0 -Second 0 -Millisecond 0
 $vardate
 $vardate.DayOfWeek
 $vardatenextyear = $vardate.AddYears(1)
+$vardateadd72hours = $vardate.AddHours(72)
+
 $vardate
 $vardate.hour 
-$vardate.hour = 4
+$vardate.hour = 4 
+$vardate | get-member | Where-Object {$_.Name -eq 'Hour'}
 $strdate=(get-date -format s).Replace(':','')
 
 #endregion
