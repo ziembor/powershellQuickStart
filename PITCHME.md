@@ -7,27 +7,28 @@ delivered (or not :)) by Ziemek Borowski, with some lab, homework and code revie
 ---?image=_Images/2017-09-24_13_10_11-Windows_PowerShell_ISE_orig.png&size=auto 90%
 
 ---
-# Hello! Instructor introduction
-- Ziemek Borowski ziemek.borowski@pl.ibm.com
+### Hello! Instructor introduction
+<small>- Ziemek Borowski ziemek.borowski@pl.ibm.com
 - MCSE NT 4.0, MCSA 2003, MCSA 2008, 2012, 2016, MCSE Cloud & Infra 2016, 2017 / Productivity 2016, IBM Domino Certified Administrator
 - Ex-:  Microsoft Most Valued Profesional (MVP), Microsoft Certified Trainer
 - co-leader of Exchange Server user group
 - IBM CIC Wroclaw & Katowice, senior it specialist, @ Allianz mailing team (previously also mailing for some Nordics like Archer) since 2012 (with some break)
 - Mailing, collaboration and productivity, but on Windows platform - over 20 years as system administrator, implementer/consultant
-
+</small>
 --- 
-# Hello! Student introductions
+### Hello! Student introductions
 
-### Let’s get acquainted:
-
+#### Let’s get acquainted:
+<small>
 - Your name
 - Company / team & account affiliation
 - Title/function
 - Subject of course experiences
 - Your expectations for the course
-
+</small>
 --- 
-## Facilities  / social contract 
+### Facilities  / social contract 
+<small>
 - Class hours: 9:00-15:00 with 45 to 60 min lunch break
 - Any interaction – great, but please allow me to finish sentence :)
 - Phones - outside
@@ -35,19 +36,19 @@ delivered (or not :)) by Ziemek Borowski, with some lab, homework and code revie
 - Breaks – aprox. 10 minutes after about 1 hour
 - Other activities – Ok, quietly, but training here has priority
 - Any interaction apreciated – training is great posibility to meet your new team :)
-- Any other rules?
-
+- Any other rules needed?
+</small>
 ---
 # Important URLs
-* Feedback survey 
+<small>* Feedback survey 
 https://tapintofeb.victoria.ibm.com/forms/landing/org/app/57d0a30c-2a93-4f0f-817a-f68f4d03f99e/launch/index.html?form=F_Form1 
 * IBM CIC Wrocław & Katowice upskilling paths: 
 https://w3-connections.ibm.com/wikis/home?lang=en#!/wiki/Wa9e28ade5650_4046_810d_3bfebc911b10/page/UP%20Career%20Paths 
 https://w3-connections.ibm.com/wikis/home?lang=en#!/wiki/Wc99c95dc4ef7_4a37_b0e2_e8df1101c3ea/page/Windows%20based%20systems 
 * GTS Expertise Edvisor  Learning Plan for Systems Services: Distributed - Systems Administrator: Windows (Foundation) 
 https://gts-learn.w3bmix.ibm.com/#/learningPlan/85257895006AF29D 
-* My IBM Github with courses materials https://github.ibm.com/ziemowit-borowski
-
+* My IBM Github with courses materials https://github.com/ziembor
+</small>
 --- 
 [PowerShell Quick Start](#powershell-quick-start) - table of content, [Method of participation](#method-of-participation) [Participant requirements](#participant-requirements), [Supporting sources](#supporting-sources), [What is PowerShell?](#what-is-powershell), [Let's start](#lets-start),
 [Using help](#using-help), [Running commands](#running-commands),
