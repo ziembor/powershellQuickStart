@@ -8,20 +8,24 @@ Get-command | ? { $_.name -match "proc" }
 #--- get help about command
 update-help
 get-help Get-Process
-get-help -Full get-process
-get-help -examples get-process
+help get-process -Full
+help get-process -examples
+get-help *process* 
 help get-ChildItem
 help get-ChildItem -examples 
 help get-ChildItem -detailed
-help get-ChildItem -full 
 help get-ChildItem -online
 help about*
 help about_variables -ShowWindow
 Get-Help Get-ChildItem -ShowWindow
 show-command Get-ChildItem 
 #endregion
+#region alias
+get-alias -definition where-object
+Get-alias ls
 
-
+#endregion
+
 #region comments
 #### comments with pound sign
 <#
@@ -29,7 +33,6 @@ Multiline comment
 #>
 #endregion
 
-
 #region Not scripting, but running commands
 get-executionpolicy -List
 [Microsoft.PowerShell.ExecutionPolicy].GetEnumNames()
@@ -58,23 +61,23 @@ At line:1 char:1
 #>	
 #endregion
 
-
 #region Manipulating dates
-
 get-date -format s
+get-date -format g
+Get-Date -UFormat "%Y%m%d"
+# https://ss64.com/ps/syntax-dateformats.html
 $vardate = get-date
 $vardate = get-date -hour 14 -Minute 0 -Second 0 -Millisecond 0
 $vardate
 $vardate.DayOfWeek
 $vardatenextyear = $vardate.AddYears(1)
+$vardatenextyear = $vardate.AddHours(-72)
 $vardate
 $vardate.hour 
 $vardate.hour = 4
 $strdate=(get-date -format s).Replace(':','')
-
 #endregion
 
-
 #region constructing new object
 #first get type name
 $(get-date).gettype().FullName
@@ -110,7 +113,25 @@ get-date | gm
 
 #endregion
 
-#region where dir -Recurse | where {$_.isContainer -eq $true}#endregion 
+#region where dir
+dir -Recurse -Directory 
+fsutil file createnew "file.txt" (1MB)
+foreach ($f in (1..10)) {fsutil file createnew "$($f)_file.txt" (get-random -minimum 90KB -maximum 3MB)
+dir  -Recurse | where {$_.Length -eq 1MB} 
+#the same 
+dir | ? Length -eq 1MB
+dir | where {$_.Length -eq 1MB}  
+dir | where-object {$_.Length -eq 1MB}  
+
+<# 
+$_ is special variable for current item in iterator (in pipelines, loops)
+$_.Name is property Name in current iterator 
+
+#> 						}
+### Comment 
+dir | get-member | where {$_.Name -eq 'Length'}
+
+#endregion 
 
 #region Variables
 $varint = 6
@@ -134,11 +155,6 @@ $varstring2
 [int]$int = 3
 [int]$int = "text"
 
-#xml data type
-[xml]$x = '<?xml version="1.0"?><helloworld><greeter>An XSLT Programmer</greeter><greeting><string lang="en-US">Hello, World!</string><string lang="pl-PL">Witaj swiecie!</string></greeting></helloworld>'
-$x.helloworld.greeter
-$x.helloworld.greeting.string[0].'#text'
-
 #arrays
 $vararray = @("String1","String2","String3")
 $vararray
@@ -147,6 +163,7 @@ $vararray[0]
 $mergedarray = $vararray + @("String4","String5")
 $mergedarray
 $mergedarray += "String6"
+$mergedarray = $mergedarray "String6"									 
 $mergedarray
 
 #arraylist
@@ -157,13 +174,13 @@ $varlist.remove("String1")
 $varlist[0]
 
 #hash list
-$mailadr = @{"john"="john@foo.com"; "dave"="dave@foo.com"}
+$mailadr = @{"Jan"="Jan@Test.com"; "Henryk"="Henryk@Test.com"}
 $mailadr
-$mailadr["john"]
+$mailadr["Jan"]
 $mailadr
-$mailadr["Ziemek"] = "Ziemek@foo.com"
+$mailadr["Ziemek"] = "Ziemek@Test.com"
 $mailadr
-$mailadr.remove("dave") 
+$mailadr.remove("Henryk") 
 $mailadr
 
 #multi array
@@ -173,39 +190,49 @@ $array4 = ,(0,5,0)
 $array4 += ,(3,0,1)
 #endregion
 
-
 #region Creating custom objects
 $Ziemek=New-Object PSObject
 $Ziemek | Add-Member Noteproperty -Name Name -value "Ziemek"
 $Ziemek | Add-Member Noteproperty -Name Sex -value "m"
 $Ziemek
 
-$dave = New-Object -TypeName PSObject -Property @{ Name="Dave";Sex="m" }
-$dave
+$Henryk = New-Object -TypeName PSObject -Property @{ Name="Henryk";Sex="m" }
+$Henryk
 
-$list = $Ziemek,$dave
+$list = $Ziemek,$Henryk
 $list
 #endregion
 
-
 #region Use of execute variable $()
 Write-host get-date
 Write-host $(get-date)
 #endregion
 
-
 #region Writing with format string
+cls 
+
 $who = "world"
 $greeter = "Ziemek"
 
 Write-Host "hello $who from $greeter"
 Write-Host ("hello "+$who+" from "+$greeter)
 Write-Host ("hello {0} from {1}" -f $who,$greeter)
-Write-Host ("hello {0} from {1} on {2:dd/MM/yyyy}" -f $who,$greeter,$(get-date))
-Write-Host ("{3,2:##} hello {0} from {1} on {2:HH:mm:ss}" -f $who,$greeter,$(get-date),1)
-Write-Host ("{3,2:##} hello {0} from {1} on {2:HH:mm:ss}" -f $who,$greeter,$(get-date),10)
+Write-Host ("hello {0} from {1} on {2:yyyyMd}" `
+-f $who,$greeter,$(get-date))
+Write-Host ("hello {0} from {1} on {2:yyyyMMdd}" `
+-f $who,$greeter,$(get-date))
+Write-Host ("{3,2:##} hello {0} from {1} on {2:HH:mm:ss} {3}" `
+-f $who,$greeter,$(get-date),1)
+"{3,2:##} hello {0} from {1} on {2:HH:mm:ss}" `
+-f $who,$greeter,$(get-date),10
 Write-Host "hello $who from $greeter" -foregroundcolor DarkGreen -backgroundcolor white
-
+# Other usage - generate hostname 
+$servialNumber = 341
+"nor431ash{0:0000000}" -f $servialNumber
+# other methods 
+$serialString  = $servialNumber.ToString("0000000")
+"nor431ash$serialString"
+# end other methods 
 <#
 http://msdn.microsoft.com/en-us/library/txafckwd(v=vs.110).aspx
 
@@ -213,20 +240,11 @@ It is visual basic and c sharp examples but you can easily convert these
 "Name = {0}, hours = {1:hh}", myName, DateTime.Now
 to
 #>
-$varname = "Tom"
-write-host ("Name = {0}, hours = {1:hh}" -f $varname, $(get-date))
-<#
-Dim MyInt As Integer = 100
-Console.WriteLine("{0:C}", MyInt)
-to
-#>
-$varint = 100
-write-host ("{0:C}" -f $varint)
 #endregion
 
-
 #region If then else
-$human = New-Object -TypeName PSObject -Property @{ Name="Dave";Sex="m" }
+$human += New-Object -TypeName PSObject `
+-Property @{ Name="Henryk";Sex="m" }
 If ($human.sex -eq "m") { 
 	write-host $human.name" is a dude"
 } Else {
@@ -246,12 +264,34 @@ Else {
 
 #endregion
 
-
+#region Comparison_Operators
+help about_Comparison_Operators -ShowWindow
+<#     Windows PowerShell includes the following comparison operators:
+
+      -eq
+      -ne
+      -gt
+      -ge   
+      -lt
+      -le
+      -Like
+      -NotLike
+      -Match
+      -NotMatch
+      -Contains
+      -NotContains
+      -In
+      -NotIn
+      -Replace
+#> 	  
+
+#endregion
+
 #region switch case
 $today = get-date
 Switch ($today.dayofweek)
 {
-	Monday { Write-host "Don’t want to work today"}
+	Monday { Write-host "Don't want to work today"}
 	Friday { Write-host "Almost weekend" }
 	Saturday { Write-host "Weekend!" }
 	Sunday { Write-host "A good day to rest" }
@@ -260,9 +300,8 @@ Switch ($today.dayofweek)
 
 #endregion
 
-
 #region Loop
-$varlist = @("Ziemek","Dave","John")
+$varlist = @("Ziemek","Henryk","Jan")
 #foreachloop !!!
 Foreach($name in $varlist) {
 	Write-Host $name
@@ -283,21 +322,8 @@ While($(get-date).minute -ne $nextminute)
 For($counter=0;$counter -lt $varlist.count;$counter++) {
 	Write-Host  $varlist[$counter]
 }
-#foreachloop with index
-(0..5)
-Foreach($counter in (0..($varlist.count-1))) {
-	Write-Host  $varlist[$counter]
-}
 #endregion
 
-
-#region alias
-get-alias -definition where-object
-Get-alias ls
-
-#endregion
-
-
 #region object array and pipeline
 $cars = @()
 $cars += New-Object -TypeName PSObject -Property @{ Name="Golf";Engine=1.9;Brand="Volkswagen"}
@@ -308,7 +334,7 @@ $cars += New-Object -TypeName PSObject -Property @{ Name="CLS";Engine=3.5;Brand=
 
 $cars
 
-$cars | where { $_.engine -lt 2 }
+$cars | ? { $_.engine -lt 2 }
 $cars | % { 
 	$fullname = $_.Brand+" "+$_.name
 	write-host $fullname
@@ -316,18 +342,34 @@ $cars | % {
 $cars | sort-object -descending engine
 $cars | sort-object engine  | where { $_.engine -lt 2 }
 $cars | sort-object engine  | select -first 3 | select brand,name
-$cars | sort-object engine  | select -first 3 | select brand,name | ConvertTo-Csv
-$cars | sort-object engine  | select -first 3 | select brand,name | ConvertTo-Html | Out-File "C:\d\cars.html"
+$cars | sort-object engine  | select -first 3 | select brand,name | Export-Csv plik.csv
+$cars | sort-object engine  | select -first 3 | select brand,name | ConvertTo-Html | Out-File "cars.html"; ii cars.html 
 
 
 #endregion
 
-
+#region collecing objects 
+dir -File -Recurse | select Name,@{n="KBytes";e={ ($_.Length/1KB).ToString("0000.0")}} 
+#or 
+cls 
+$dir = @()
+foreach ($item in (dir -File -Recurse)) {
+[int]$SizeKB = $item.Length/1KB
+
+$itemObj = New-Object PSObject
+$itemObj | Add-Member NoteProperty -Name FileName -Value $item.Name 
+$itemObj | Add-Member NoteProperty -Name SizeKB -Value $SizeKB
+$dir += $itemObj
+										}
+$dir 			| select -first 1
+							
+#endregion
 #region functions
 Function repeat-text {
-	param ([string]$string="I will never write on the blackboard again",[int]$repeat=5)
+	param ([string]$string="Please learn how to create object",[int]$repeat=5)
 	foreach ( $count in 1..$repeat) { Write-Host "$count : $string" }
-}
+						}
+						
 Repeat-text -string "I will start powershell every day"
 Repeat-text  -repeat 10 -string "I will start powershell every day"
 
@@ -349,7 +391,10 @@ Repeat-text -s "I will start powershell every day"
 
 #endregion
 
-
+#region simple-script.ps1
+cat simple-script.ps1 
+.\simple-script.ps1 -argument "That's argument"#endregion
+
 #region Errors 
 $x = 1/0
 $? ; $LASTEXITCODE 
@@ -370,45 +415,6 @@ Write-Error "Something is wrong on the holodeck!"
 
 #endregion
 
-
-#region Creating a pipeline command
-function SimpleWrite-Object {
-    BEGIN { 
-        #before pipeline starts
-    }
-    PROCESS {
-        #for everyobject in the pipe
-        Write-Host "Writing object:"$_.name
-    }
-    END { 
-        #after eachobject
-    }
-}
-Get-Process | SimpleWrite-Object
-#or with more decoration
-function SimpleWrite-Object {
- param(
-        [Parameter(Mandatory=$true, Position=0, ValueFromPipeline=$true)]
-        [PSObject[]]$InputObject
-    )
-    BEGIN { 
-        #before pipeline starts
-    }
-    PROCESS {
-        #for everyobject in the pipe
-        Write-Host "Writing object:"$InputObject.name
-    }
-    END { 
-        #after eachobject
-    }
-}
-Get-process | SimpleWrite-Object
-#filters
-filter NotepadFilter { if ($_.Name -eq 'notepad') { $_ } }
-get-process | NotepadFilter
-#endregion
-
-
 #region regex
 
 $helloworld = "Hello World"
@@ -423,76 +429,18 @@ $multiplematches = "matcha jiberish matchb jiberish matchc"
 $regex = [regex]"match([a-z])"
 $regex.Matches($multiplematches) | % { Write-Host ("{0} -> {1}" -f $_.Groups[0].Value, $_.Groups[1].Value ) }
 
-
-$wc = new-object system.net.webclient
-$patchpage = $wc.DownloadString("http://www.veeam.com/patches.html")
-
-$regextable = [regex]"(?is)<table[^>]+downloads_table[^>]+>(.*?)</table>"
-$regexname = [regex]"(?is)<td[^>]+id=.name.[^>]+><a href=.([^`"]+)[^>]+>([^<]+)</a></td>"
-$patches = @()
-
-$regextable.Matches($patchpage) | % {
-	$tablecontent = $_.Groups[1].Value
-	$regexname.Matches($tablecontent) | % {
-		$obj = new-object -typename PSObject -Property @{name=$_.Groups[2].Value;url=$_.Groups[1].Value}
-		$patches +=$obj	
-	}
-}
-$patches
 #endregion
 
-
+#region Homework 
+" Homework selection: write one script some specific needs (preferably your, but you can take from list bellow"
+$r= (' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ')
+$r[0] = " return date and time of the last restart - it should return at least two properties: name of machine and datetime of event "
+$r[1] = " test if a specified application has been installed and if it happens after a date of creating a new version of the software (stored somewhere in local machine as MSI package). if the test goes OK: install unattended that newer version of the software. "
+$r[2] = " write script which will remove all logs older than one year, and compress older than 30 days in c:\oldLogs" 
+$r[3] = " test if specified (as a parameter of a script) service is installed, is working. If not - start it. "
+$r[4] = " test if specified website is working, if not send mail to admin or write event to Windows Eventlog "
+$r[5] = " test if www.test.com is available on ICMP test, if not set route to specified network to new router"
+$r[6] = " copy all files with extension *.pdf to the same folder (with making sure that you will don't overwrite copies)"
+$r[$(get-random -maximum $(($r.count -1)))]
 
-#region remoting
-
-#on target host
-Enable-PSRemoting -Force
-
-#test
-Test-WsMan 172.20.1.2
-
-#if not in domain, enable psremoting on both then add thrustedhost to client
-Set-Item wsman:\localhost\client\trustedhosts "192.168.0.*"
-Get-item wsman:\localhost\client\trustedhosts
-
-#start session to execute commands
-Enter-PSSession -ComputerName 192.168.0..2  -credential domain\Ziemeko
-
-#invoke a command directly
-Invoke-Command -ComputerName 192.168.0.2  -credential domain\Ziemeko -ScriptBlock {
-HOSTNAME.EXE}
-
-#storing credentials with securestring and encrypting
-$creds = get-credential
-$encryptedpassword = $creds.password | ConvertFrom-SecureString 
-$storablecredentials = New-Object -TypeName PSObject -Property @{username=$creds.username; password=$encryptedpassword  }
-$storablecredentials | ConvertTo-Csv | Set-Content C:\d\creds\auth
-
-$storablecredentials = Get-Content C:\d\creds\auth | ConvertFrom-Csv 
-$securedstring = $storablecredentials.password | ConvertTo-SecureString
-$credentials = New-Object System.Management.Automation.PSCredential -ArgumentList $storablecredentials.username, $securedstring 
-Invoke-Command -ComputerName 172.20.1.2  -credential $credentials -ScriptBlock {systeminfo}
-#endregion
-
-
-
-#region Mail with powershell
-set-alias -name html -value convertto-html
-$softwareWMI = Get-WmiObject -Class Win32_Product
-$software = $softwareWMI | select Name,Version | html -fragment -pre "<h2>Products Installed</h2>"
-$envvars = dir env: | select Name,Value | html -fragment -pre "<h2>System Variables</h2>"
-
-$htmlhead = "<title>System Report</title><style type='text/css'>h1,h2,body,p {font-family:verdana;}</style>"
-$htmlout = html -head $htmlhead -body ("<h1>System Report</h1>"+$envvars+$software)
-
-$smtp = New-Object System.Net.Mail.SmtpClient("localhost")
-$message = New-Object System.Net.Mail.MailMessage "automail@foo.com","Ziemeko@foo.com"
-$message.Subject = "System Report"
-$message.IsBodyHTML = $true
-$message.Body = $htmlout
-$smtp.Send($message)
-#### or just 
-show-command send-mailmessage 
-#endregion
-
-
+#endregion 

@@ -96,8 +96,8 @@ I expect one week for homework done. In middle of that time, I will organize off
 ---
 ### Supporting sources
 * ['Using Windows PowerShell'](https://docs.microsoft.com/en-us/powershell/scripting/getting-started/fundamental/using-windows-powershell) / free
-* ['Learn Windows PowerShell 3 in a Month of Lunches, Second Edition'](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/) by Don Jones and Jeffery Hicks <small>Manning Publications / paid, also in  SafariBooksOnline (+ [video on YouTube](https://www.youtube.com/playlist?list=PL6D474E721138865A&feature=view_all))</small>
-* [Windows PowerShell Cookbook, 3rd Edition](https://www.safaribooksonline.com/library/view/windows-powershell-cookbook/9781449359195/) by Lee Holmes <small>/ paid, also in SafariBooksOnline </small>
+* ['Learn Windows PowerShell in a Month of Lunches, Third Edition'](https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617294167/) by Don Jones and Jeffery Hicks <small>Manning Publications / paid, also in  SafariBooksOnline (+ [video on YouTube](https://www.youtube.com/playlist?list=PL6D474E721138865A&feature=view_all))</small>
+* [Windows PowerShell Cookbook', 3rd Edition](https://www.safaribooksonline.com/library/view/windows-powershell-cookbook/9781449359195/) by Lee Holmes <small>/ paid, also in SafariBooksOnline </small>
 * Rafał Kraik [Powershell dla administratora Windows - kompletny kurs](https://www.udemy.com/powershell-dla-administratora-windows/) <small>/ paid, Udemy</small>
 * `+` i.e. resources @ https://mva.microsoft.com/, [Veeam: LEARN POWERSHELL
 From Basics To A Coding Star](https://go.veeam.com/learn-powershell-basics-free-tutorial-course)
@@ -477,7 +477,7 @@ To jest argument zmiennej
 ---
 ### Homework 
 
-Homework selection: write script for specific needs
+Homework selection: write one script some specific needs (preferably your, but you can take from list bellow
 <small>
 <li> return date and time of the last restart - it should return at least two properties: name of machine and datetime of event 
 
@@ -487,8 +487,8 @@ Homework selection: write script for specific needs
 
 <li> test if specified (as a parameter of a script) service is installed, is working. If not - start it. 
 
-<li> test if specified website is working, if not send mail to admin or write event to Windows Eventlog 
 </small>
+<li> test if specified website is working, if not send mail to admin or write event to Windows Eventlog 
 continiue on next slide,
 
 ---

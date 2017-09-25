@@ -1,10 +1,53 @@
+
+<!-- .slide: data-background-image="./assets/md/assets/2017-09-24_13_10_11-Windows_PowerShell_ISE.png" data-background-size="auto 90%" -->
+
+
 # PowerShell Quick Start
 very quick - up to 6 hours
 delivered (or not :)) by Ziemek Borowski, with some lab, homework and code review
 
 ---
-<a target="_blank" href="#powershell-quick-start">PowerShell Quick Start</a> - table of content, <a target="_blank" href="#method-of-participation">Method of participation</a> <a target="_blank" href="#participant-requirements">Participant requirements</a>, <a target="_blank" href="#supporting-sources">Supporting sources</a>,
-<a target="_blank" href="#what-is-powershell">What is PowerShell?</a>, <a target="_blank" href="#lets-start">Let's start</a>,
+<!-- .slide: data-background-image="./assets/md/assets/2017-09-24_13_10_11-Windows_PowerShell_ISE_orig.png" data-background-size="auto 90%" -->
+
+
+---
+### Hello! Instructor introduction
+<small>- Ziemek Borowski ziemek.borowski@pl.ibm.com
+- MCSE NT 4.0, MCSA 2003, MCSA 2008, 2012, 2016, MCSE Cloud & Infra 2016, 2017 / Productivity 2016, IBM Domino Certified Administrator
+- Ex-:  Microsoft Most Valued Profesional (MVP), Microsoft Certified Trainer
+- co-leader of Exchange Server user group
+- IBM CIC Wroclaw & Katowice, senior it specialist, @ Allianz mailing team (previously also mailing for some Nordics like Archer) since 2012 (with some break)
+- Mailing, collaboration and productivity, but on Windows platform - over 20 years as system administrator, implementer/consultant
+</small>
+---
+### Hello! Student introductions
+
+#### Let’s get acquainted:
+<small>
+- Your name
+- Company / team & account affiliation
+- Title/function
+- Subject of course experiences
+- Your expectations for the course
+</small>
+---
+#### Facilities  / social contract 
+<small>
+- Class hours: 9:00-15:00 with 60 min lunch break @ 12:00
+- Any interaction – great, but please allow me to finish sentence :)
+- Phones - outside, Messages (text, SameTime) –  quietly - Other activities – Ok, quietly, but training here has priority
+- Breaks – aprox. 10 minutes after about 1 hour
+- Any interaction apreciated – training is great posibility to meet your new team :)
+- Any other rules needed?
+</small>
+---
+#### Important URLs
+<small>* Feedback survey 
+<a target="_blank" href="https://tapintofeb.victoria.ibm.com/forms/landing/org/app/57d0a30c-2a93-4f0f-817a-f68f4d03f99e/launch/index.html?form=F_Form1">https://tapintofeb.victoria.ibm.com/forms/landing/org/app/57d0a30c-2a93-4f0f-817a-f68f4d03f99e/launch/index.html?form=F_Form1</a>
+* My IBM Github with courses materials https://github.com/ziembor
+</small>
+---
+<a target="_blank" href="#powershell-quick-start">PowerShell Quick Start</a> - table of content, <a target="_blank" href="#method-of-participation">Method of participation</a> <a target="_blank" href="#participant-requirements">Participant requirements</a>, <a target="_blank" href="#supporting-sources">Supporting sources</a>, <a target="_blank" href="#what-is-powershell">What is PowerShell?</a>, <a target="_blank" href="#lets-start">Let's start</a>,
 <a target="_blank" href="#using-help">Using help</a>, <a target="_blank" href="#running-commands">Running commands</a>,
 <a target="_blank" href="#the-pipeline-connecting-commands">The pipeline: connecting commands</a>,
 <a target="_blank" href="#adding-commands--modules-">Adding commands: ... modules ...</a>, <a target="_blank" href="#objects-data-by-another-name">Objects: data by another name</a>,
@@ -13,7 +56,8 @@ delivered (or not :)) by Ziemek Borowski, with some lab, homework and code revie
 
 ---
 ### Summary
-Quick PowerShell course for people with limited experience on system administrator scripting (5 hours in person meeting + homework + online homework review session). The course is based on <a target="_blank" href="https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/">"Learn Windows PowerShell 3 in a Month of Lunches, Second Edition' by Don Jones and Jeffery Hicks"</a>.  
+Quick PowerShell course for people with limited experience on system administrator scripting (5 hours in person meeting + homework + online homework review session). The course is based on <a target="_blank" href="https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/">"Learn Windows PowerShell 3 in a Month of Lunches, Second Edition' by Don Jones and Jeffery Hicks"</a> and [Veeam: LEARN POWERSHELL
+From Basics To A Coding Star](https://go.veeam.com/learn-powershell-basics-free-tutorial-course).  
 
 ---
 ### Method of participation
@@ -56,11 +100,12 @@ I expect one week for homework done. In middle of that time, I will organize off
 ---
 ### Supporting sources
 * <a target="_blank" href="https://docs.microsoft.com/en-us/powershell/scripting/getting-started/fundamental/using-windows-powershell">'Using Windows PowerShell'</a> / free
-* <a target="_blank" href="https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/">'Learn Windows PowerShell 3 in a Month of Lunches, Second Edition'</a> by Don Jones and Jeffery Hicks Publisher: Manning Publications / paid, also in  SafariBooksOnline (+ <a target="_blank" href="https://www.youtube.com/playlist?list=PL6D474E721138865A&feature=view_all">video on YouTube</a>)
+* <a target="_blank" href="https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/">'Learn Windows PowerShell 3 in a Month of Lunches, Second Edition'</a> by Don Jones and Jeffery Hicks <small>Manning Publications / paid, also in  SafariBooksOnline (+ <a target="_blank" href="https://www.youtube.com/playlist?list=PL6D474E721138865A&feature=view_all">video on YouTube</a>)</small>
+* <a target="_blank" href="https://www.safaribooksonline.com/library/view/windows-powershell-cookbook/9781449359195/">Windows PowerShell Cookbook, 3rd Edition</a> by Lee Holmes <small>/ paid, also in SafariBooksOnline </small>
+* Rafał Kraik <a target="_blank" href="https://www.udemy.com/powershell-dla-administratora-windows/">Powershell dla administratora Windows - kompletny kurs</a> <small>/ paid, Udemy</small>
+* `+` i.e. resources @ https://mva.microsoft.com/, [Veeam: LEARN POWERSHELL
+From Basics To A Coding Star](https://go.veeam.com/learn-powershell-basics-free-tutorial-course)
 * <a target="_blank" href="https://github.com/MikeFal/IntroToPowershell">MikeFal/IntroToPowershell</a> / free
-* <a target="_blank" href="https://www.safaribooksonline.com/library/view/windows-powershell-cookbook/9781449359195/">Windows PowerShell Cookbook, 3rd Edition</a> by Lee Holmes / paid, also in SafariBooksOnline 
-* Rafał Kraik <a target="_blank" href="https://www.udemy.com/powershell-dla-administratora-windows/">Powershell dla administratora Windows - kompletny kurs</a> / paid, Udemy
-* `+` i.e. resources @ https://mva.microsoft.com/, <a target="_blank" href="https://go.veeam.com/rs/veeam/images/kickstart_powershell_1_slides.pdf">Veeam Powershell kickstart</a>
 
 ---
 ### What is PowerShell? 
@@ -125,11 +170,8 @@ IF %ERRORLEVEL% EQU 0 (Echo No error found) ELSE (Echo An error was found)
 `powershell.exe` or `ise.exe` 
 ```
 Start-Transcript $env:Temp\GettingStarted.txt -Force
-
 Set-ExecutionPolicy RemoteSigned -Force -Scope CurrentUser
-
 get-host 
-
 Stop-Transcript
 notepad $env:Temp\GettingStarted.txt
 ```
@@ -148,11 +190,11 @@ help get-ChildItem
 help get-ChildItem -examples 
 help get-ChildItem -detailed
 help get-ChildItem -full 
-help get-ChildItem -examples
 help get-ChildItem -online
+help about* 
 Get-Help Get-ChildItem -ShowWindow
+show-command Get-ChildItem 
 ```
-* show-command Get-ChildItem 
 
 ---
 <!-- .slide: data-background-image="./assets/md/assets/CopingAndPasting.png" data-background-size="auto 90%" -->
@@ -221,9 +263,14 @@ Verb-Noun (`Get-Command`, `Add-User`).
 - $? and $LASTEXITCODE stand "exist code from last command"
 - ` - escape next character, i.e. ``n - \n, ` at end of line supersed EOL 
 - ; - separate commands in the same line 
+- $Args - list of script argument
+- $Error - array of errors (ussually as $Error[0])
+- $Home, $PSHome 
+- $true, $false, $null 
+- $(command)
 
 ---
-### conditions 
+### conditions, if, else 
 ```
 #You can use -eq, -ne, -gt, -lt, -le, -ge  to perform logical comparisons 
 '1 -eq 2 returns: ' + (1 -eq 2)
@@ -395,17 +442,6 @@ d----- 09.09.2017     21:56        powershellQuickStart
     Directory: C:\Code\bin
 Mode          LastWriteTime   Length Name
 ```
-
----
-### Special variables 
-$_ 
-$Args 
-$Error
-$Home 
-$PSHome 
-$true, $false, $null 
-$(command)
-
 ---
 ###  output
 ```

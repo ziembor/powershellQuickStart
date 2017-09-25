@@ -17,7 +17,7 @@ quick PowerShell course for people with limited experience on system administrat
 - basic knowledge on Windows Server administration and basic knowledge on computer programming (simple VBA macros, Lego Robotics, VBScript or cmd.exe are enough). 
 
 ### Required equipment
-- Windows 7 or Windows 10 virtual machine  
+- Windows 7 or Windows 10 virtual machine  (possible to damage)
 - working access to ' Laboratory' with Windows Server 2016 
 
 # Agenda
@@ -35,7 +35,6 @@ quick PowerShell course for people with limited experience on system administrat
 I expect one week for homework done. In middle of that time I will organize office hours using Zoom remote conference tool. After homework submission date, we will meet and discuss selected works. 
 
 # Supporting sources
-* 'Windows PowerShell Survival Guide' <https://social.technet.microsoft.com/wiki/contents/articles/183.windows-powershell-survival-guide.aspx>
 * 'Using Windows PowerShell' <https://docs.microsoft.com/en-us/powershell/scripting/getting-started/fundamental/using-windows-powershell>
-* 'Learn Windows PowerShell 3 in a Month of Lunches, Second Edition' by Don Jones and Jeffery Hicks Publisher: Manning Publications Published: November 2012 <https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617291081/>
+* 'Learn Windows PowerShell 3 in a Month of Lunches, Third Edition' by Don Jones and Jeffery Hicks Publisher: Manning Publications December, 2016 https://www.safaribooksonline.com/library/view/learn-windows-powershell/9781617294167/
 
