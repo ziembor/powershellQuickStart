@@ -27,26 +27,19 @@ delivered (or not :)) by Ziemek Borowski, with some lab, homework and code revie
 - Your expectations for the course
 </small>
 --- 
-### Facilities  / social contract 
+#### Facilities  / social contract 
 <small>
-- Class hours: 9:00-15:00 with 45 to 60 min lunch break
+- Class hours: 9:00-15:00 with 60 min lunch break @ 12:00
 - Any interaction – great, but please allow me to finish sentence :)
-- Phones - outside
-- Messages (text, SameTime) –  quietly 
+- Phones - outside, Messages (text, SameTime) –  quietly - Other activities – Ok, quietly, but training here has priority
 - Breaks – aprox. 10 minutes after about 1 hour
-- Other activities – Ok, quietly, but training here has priority
 - Any interaction apreciated – training is great posibility to meet your new team :)
 - Any other rules needed?
 </small>
 ---
-# Important URLs
+#### Important URLs
 <small>* Feedback survey 
 https://tapintofeb.victoria.ibm.com/forms/landing/org/app/57d0a30c-2a93-4f0f-817a-f68f4d03f99e/launch/index.html?form=F_Form1 
-* IBM CIC Wrocław & Katowice upskilling paths: 
-https://w3-connections.ibm.com/wikis/home?lang=en#!/wiki/Wa9e28ade5650_4046_810d_3bfebc911b10/page/UP%20Career%20Paths 
-https://w3-connections.ibm.com/wikis/home?lang=en#!/wiki/Wc99c95dc4ef7_4a37_b0e2_e8df1101c3ea/page/Windows%20based%20systems 
-* GTS Expertise Edvisor  Learning Plan for Systems Services: Distributed - Systems Administrator: Windows (Foundation) 
-https://gts-learn.w3bmix.ibm.com/#/learningPlan/85257895006AF29D 
 * My IBM Github with courses materials https://github.com/ziembor
 </small>
 --- 
